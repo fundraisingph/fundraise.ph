@@ -43,9 +43,6 @@ export function Hero({ badge, headline, subheadline, children, variation }: Hero
         }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 opacity-10">
-        <img src="/hero-banner.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
-      </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
         <div className="max-w-4xl">
           {badge && (
