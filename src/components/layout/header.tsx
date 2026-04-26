@@ -12,7 +12,6 @@ import { Menu, ArrowRight } from 'lucide-react'
 import { useNavigation, type PageId } from '@/lib/navigation'
 
 const navLinks: { label: string; page: PageId }[] = [
-  { label: 'Home', page: 'home' },
   { label: 'Why We Exist', page: 'why-we-exist' },
   { label: 'Mission', page: 'mission' },
   { label: 'Trust & Transparency', page: 'trust-transparency' },
