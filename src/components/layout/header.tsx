@@ -8,25 +8,68 @@ import {
   SheetTrigger,
   SheetTitle,
 } from '@/components/ui/sheet'
-import { Menu, ArrowRight } from 'lucide-react'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { Menu, ArrowRight, ChevronDown } from 'lucide-react'
 import { useNavigation, type PageId } from '@/lib/navigation'
 
-const navLinks: { label: string; page: PageId }[] = [
-  { label: 'Why We Exist', page: 'why-we-exist' },
-  { label: 'Mission', page: 'mission' },
-  { label: 'Trust & Transparency', page: 'trust-transparency' },
-  { label: 'Roadmap', page: 'technology-roadmap' },
-  { label: 'Impact', page: 'impact' },
-  { label: 'Governance', page: 'governance' },
-  { label: 'Team', page: 'team' },
+interface NavGroup {
+  label: string
+  items: { label: string; page: PageId }[]
+}
+
+const navGroups: NavGroup[] = [
+  {
+    label: 'About',
+    items: [
+      { label: 'Why We Exist', page: 'why-we-exist' },
+      { label: 'Mission & Objectives', page: 'mission' },
+      { label: 'Founding Story', page: 'founding-story' },
+      { label: "Serg's Chocolates Story", page: 'sergs-chocolates' },
+      { label: 'Team & Trustees', page: 'team' },
+    ],
+  },
+  {
+    label: 'Trust & Governance',
+    items: [
+      { label: 'Trust & Transparency', page: 'trust-transparency' },
+      { label: 'Governance', page: 'governance' },
+    ],
+  },
+  {
+    label: 'Technology & Impact',
+    items: [
+      { label: 'Technology Roadmap', page: 'technology-roadmap' },
+      { label: 'Impact', page: 'impact' },
+    ],
+  },
+]
+
+const standaloneLinks: { label: string; page: PageId }[] = [
   { label: 'Blog', page: 'blog' },
   { label: 'Partner With Us', page: 'partner-with-us' },
 ]
+
+// Flat list for mobile menu
+const mobileGroups: { type: 'group'; label: string; items: { label: string; page: PageId }[] }[] = navGroups.map(g => ({
+  type: 'group' as const,
+  label: g.label,
+  items: g.items,
+}))
+
+function isPageInGroup(page: PageId, group: NavGroup): boolean {
+  return group.items.some(item => item.page === page)
+}
 
 export function Header() {
   const { currentPage, navigate } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10)
@@ -37,6 +80,10 @@ export function Header() {
   const handleNav = (page: PageId) => {
     navigate(page)
     setMobileOpen(false)
+  }
+
+  const toggleGroup = (label: string) => {
+    setExpandedGroups(prev => ({ ...prev, [label]: !prev[label] }))
   }
 
   return (
@@ -62,7 +109,44 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-0.5">
-            {navLinks.map((item) => (
+            {/* Dropdown Groups */}
+            {navGroups.map((group) => {
+              const isActive = isPageInGroup(currentPage, group)
+              return (
+                <DropdownMenu key={group.label}>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      className={`px-3 py-2 text-sm font-medium rounded-md transition-colors inline-flex items-center gap-1 ${
+                        isActive
+                          ? 'text-gold bg-white/10'
+                          : 'text-white/70 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {group.label}
+                      <ChevronDown className="h-3.5 w-3.5 opacity-60" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="bg-white border-border shadow-lg min-w-[200px]">
+                    {group.items.map((item) => (
+                      <DropdownMenuItem
+                        key={item.page}
+                        onClick={() => handleNav(item.page)}
+                        className={`cursor-pointer ${
+                          currentPage === item.page
+                            ? 'text-trust-blue font-semibold bg-trust-blue/5'
+                            : 'text-[#4A5568]'
+                        }`}
+                      >
+                        {item.label}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )
+            })}
+
+            {/* Standalone Links */}
+            {standaloneLinks.map((item) => (
               <button
                 key={item.page}
                 onClick={() => handleNav(item.page)}
@@ -104,7 +188,47 @@ export function Header() {
                   <img src="/logo.png" alt="Fundraise.ph" className="w-8 h-8 rounded-lg object-contain" />
                   <span className="font-bold text-lg text-white">Fundraise<span className="text-gold">.ph</span></span>
                 </div>
-                {navLinks.map((item) => (
+
+                {/* Mobile Dropdown Groups */}
+                {mobileGroups.map((group) => {
+                  const isExpanded = expandedGroups[group.label]
+                  const isActive = group.items.some(item => item.page === currentPage)
+                  return (
+                    <div key={group.label}>
+                      <button
+                        onClick={() => toggleGroup(group.label)}
+                        className={`w-full px-3 py-2.5 text-sm font-medium rounded-md text-left transition-colors flex items-center justify-between ${
+                          isActive
+                            ? 'text-gold bg-white/10'
+                            : 'text-white/70 hover:text-white hover:bg-white/5'
+                        }`}
+                      >
+                        {group.label}
+                        <ChevronDown className={`h-3.5 w-3.5 opacity-60 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                      </button>
+                      {isExpanded && (
+                        <div className="ml-3 border-l border-white/10 pl-3 space-y-0.5 mt-0.5 mb-1">
+                          {group.items.map((item) => (
+                            <button
+                              key={item.page}
+                              onClick={() => handleNav(item.page)}
+                              className={`w-full px-3 py-2 text-sm rounded-md text-left transition-colors ${
+                                currentPage === item.page
+                                  ? 'text-gold bg-white/10'
+                                  : 'text-white/50 hover:text-white hover:bg-white/5'
+                              }`}
+                            >
+                              {item.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+
+                {/* Standalone Links */}
+                {standaloneLinks.map((item) => (
                   <button
                     key={item.page}
                     onClick={() => handleNav(item.page)}
@@ -117,6 +241,7 @@ export function Header() {
                     {item.label}
                   </button>
                 ))}
+
                 <div className="mt-4 pt-4 border-t border-white/10">
                   <Link
                     href="https://fundraising.ph"
