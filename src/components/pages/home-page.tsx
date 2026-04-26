@@ -239,7 +239,7 @@ export function HomePage() {
           <Card className="border-2 border-navy/30 bg-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 rounded-xl bg-navy text-white">
+                <div className="p-2.5 rounded-xl bg-navy/10 text-navy">
                   <ShieldCheck className="h-6 w-6" />
                 </div>
                 <CardTitle className="text-2xl text-navy">Fundraise.ph</CardTitle>
@@ -340,15 +340,15 @@ export function HomePage() {
                 Read the Serg&apos;s Founding Story
               </CTAButton>
             </div>
-            <div className="bg-gradient-hero rounded-2xl p-8 md:p-10 text-white pattern-overlay">
+            <div className="bg-light-gray rounded-2xl p-8 md:p-10 border border-navy/10">
               <div className="flex flex-col items-center text-center gap-4">
                 <Store className="h-16 w-16 text-gold" />
-                <h3 className="text-2xl font-bold text-white">Serg&apos;s Chocolates</h3>
-                <p className="text-white/70 leading-relaxed">
+                <h3 className="text-2xl font-bold text-navy">Serg&apos;s Chocolates</h3>
+                <p className="text-[#4A5568] leading-relaxed">
                   &ldquo;From bean-to-bar chocolate to bean-to-beneficiary transparency — the origin
                   story of trusted Filipino giving.&rdquo;
                 </p>
-                <Badge className="bg-white/10 text-white border-white/20 mt-2">
+                <Badge className="bg-gold/10 text-navy border-gold/30 mt-2">
                   Founding Member
                 </Badge>
               </div>

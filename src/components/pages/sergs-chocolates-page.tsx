@@ -114,16 +114,16 @@ export function SergsChocolatesPage() {
       {/* Key Insight */}
       <Section dark>
         <div className="max-w-3xl mx-auto">
-          <Card className="border-2 border-gold/40 bg-gradient-to-br from-[#0A1F44] to-[#1A2D52] shadow-lg">
+          <Card className="border-2 border-gold/40 bg-light-gray shadow-lg">
             <CardContent className="pt-8 pb-8 px-6 md:px-10 text-center">
-              <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
                 <Candy className="h-8 w-8 text-gold" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
+              <h3 className="text-2xl md:text-3xl font-bold text-navy mb-4 leading-snug">
                 A chocolate bar can be a pasalubong, a thank-you gift, a reward, a remembrance from home, or a small comfort during hard times.
               </h3>
               <div className="my-6 h-px bg-gold/30 max-w-xs mx-auto" />
-              <p className="text-white/70 text-lg leading-relaxed">
+              <p className="text-[#4A5568] text-lg leading-relaxed">
                 In Filipino culture, every act of giving carries meaning. When that act of giving also supports a verified campaign, the chocolate bar transforms from a product into a bridge — connecting the person who buys it with the community that benefits from it.
               </p>
             </CardContent>
@@ -168,10 +168,10 @@ export function SergsChocolatesPage() {
       {/* Closing Quote */}
       <Section dark>
         <div className="max-w-3xl mx-auto">
-          <Card className="border-2 border-gold/40 bg-gradient-to-br from-[#0A1F44] to-[#1A2D52] shadow-lg">
+          <Card className="border-2 border-gold/40 bg-light-gray shadow-lg">
             <CardContent className="pt-8 pb-8 px-6 md:px-10 text-center">
               <Quote className="h-10 w-10 text-gold mx-auto mb-4" />
-              <blockquote className="text-xl md:text-2xl font-semibold text-white leading-relaxed mb-6">
+              <blockquote className="text-xl md:text-2xl font-semibold text-navy leading-relaxed mb-6">
                 &ldquo;A bar of chocolate can be more than a product. It can be a gift. It can be a memory. It can be a thank-you. It can be pasalubong. It can be a small act of bayanihan.&rdquo;
               </blockquote>
               <div className="my-4 h-px bg-gold/30 max-w-xs mx-auto" />

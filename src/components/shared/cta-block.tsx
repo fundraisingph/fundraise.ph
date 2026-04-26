@@ -1,6 +1,5 @@
 'use client'
 
-import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { CTAButton } from '@/components/shared/cta-button'
 
@@ -19,9 +18,9 @@ export function CTABlock({
 }: CTABlockProps) {
   return (
     <Section>
-      <div className="bg-navy rounded-2xl p-8 md:p-12 text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{headline}</h3>
-        <p className="text-white/70 mb-6 max-w-2xl mx-auto text-lg">{subheadline}</p>
+      <div className="bg-light-gray rounded-2xl p-8 md:p-12 text-center border border-[#0A1F44]/10">
+        <h3 className="text-2xl md:text-3xl font-bold text-navy mb-3">{headline}</h3>
+        <p className="text-[#4A5568] mb-6 max-w-2xl mx-auto text-lg">{subheadline}</p>
         <CTAButton href={primaryHref} variant="primary" size="lg">
           {primaryText}
         </CTAButton>

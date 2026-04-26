@@ -87,15 +87,15 @@ export function MissionPage() {
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Mission Card - Navy bg */}
-          <Card className="bg-navy border-0 text-white">
+          <Card className="bg-light-gray border-navy/10">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center">
                   <Target className="h-6 w-6 text-gold" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">Our Mission</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-navy">Our Mission</h2>
               </div>
-              <p className="text-white/80 text-base md:text-lg leading-relaxed">
+              <p className="text-[#4A5568] text-base md:text-lg leading-relaxed">
                 To build and maintain the trust infrastructure for Filipino online fundraising — by
                 establishing verification standards, promoting transparency, enforcing accountability,
                 and providing the technology platform that enables safe, compliant, and impactful
@@ -104,16 +104,16 @@ export function MissionPage() {
             </CardContent>
           </Card>
 
-          {/* Vision Card - Navy bg */}
-          <Card className="bg-navy border-0 text-white">
+          {/* Vision Card */}
+          <Card className="bg-light-gray border-navy/10">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center">
                   <Eye className="h-6 w-6 text-gold" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white">Our Vision</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-navy">Our Vision</h2>
               </div>
-              <p className="text-white/80 text-base md:text-lg leading-relaxed">
+              <p className="text-[#4A5568] text-base md:text-lg leading-relaxed">
                 A Philippines where every online fundraiser is trustworthy, every donor is confident,
                 and every beneficiary receives the full support of a generous nation — powered by
                 technology, transparency, and the enduring spirit of bayanihan.
