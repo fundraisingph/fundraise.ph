@@ -24,6 +24,7 @@ import {
   Circle,
   CircleDot,
   Store,
+  Candy,
   Users,
   Globe,
   Lightbulb,
@@ -320,36 +321,37 @@ export function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <Badge className="mb-4 bg-gold/10 text-gold border-gold/30">
-                <Store className="h-3.5 w-3.5 mr-1.5" />
-                Founding Member Story
+                <Candy className="h-3.5 w-3.5 mr-1.5" />
+                Founding Member
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-                Serg&apos;s Chocolates and the Culture of Giving
+                Serg&apos;s Chocolates: Where It All Began
               </h2>
               <p className="text-[#1A1A2E] text-lg leading-relaxed mb-4">
-                Before Fundraise.ph was a platform, it was a chocolate company with a mission.
-                Serg&apos;s Chocolates demonstrated that Filipino businesses could build trust
-                through radical transparency — showing exactly where money goes and who it helps.
+                Fundraising.ph didn&apos;t start in a boardroom. It started with a chocolate brand
+                that wanted to come home. When Serg&apos;s Chocolates planned its revival, it made
+                CSR the core strategy — every bar of chocolate would also be an act of bayanihan.
               </p>
               <p className="text-[#4A5568] leading-relaxed mb-6">
-                That philosophy of documented impact and community accountability became the
-                founding principle of Fundraise.ph: every peso tracked, every donor acknowledged,
-                every beneficiary treated with dignity.
+                But no existing platform could support product-based community giving with the
+                verification, transparency, and Filipino-first approach Serg&apos;s needed. So
+                Serg&apos;s conceptualized Fundraising.ph — and Fundraise.ph was born as the
+                nonprofit trust layer behind it.
               </p>
               <CTAButton onClick={() => navigate('sergs-chocolates')} variant="primary" size="default">
-                Read the Serg&apos;s Founding Story
+                Read Serg&apos;s Full Story
               </CTAButton>
             </div>
             <div className="bg-light-gray rounded-2xl p-8 md:p-10 border border-navy/10">
               <div className="flex flex-col items-center text-center gap-4">
-                <Store className="h-16 w-16 text-gold" />
+                <Candy className="h-16 w-16 text-gold" />
                 <h3 className="text-2xl font-bold text-navy">Serg&apos;s Chocolates</h3>
                 <p className="text-[#4A5568] leading-relaxed">
-                  &ldquo;From bean-to-bar chocolate to bean-to-beneficiary transparency — the origin
-                  story of trusted Filipino giving.&rdquo;
+                  &ldquo;A revival that gives back. A brand that builds trust. A chocolate that
+                  reminds us: bayanihan can live online.&rdquo;
                 </p>
                 <Badge className="bg-gold/10 text-navy border-gold/30 mt-2">
-                  Founding Member
+                  Founding Member — Fundraise.ph
                 </Badge>
               </div>
             </div>
