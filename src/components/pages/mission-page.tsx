@@ -2,6 +2,7 @@
 
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
+import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -79,37 +80,37 @@ export function MissionPage() {
 
       {/* Mission & Vision */}
       <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Mission */}
-          <Card className="border-l-4 border-l-primary bg-primary/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Mission Card - Navy bg */}
+          <Card className="bg-navy border-0 text-white">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Target className="h-6 w-6 text-primary" />
+                <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
+                  <Target className="h-6 w-6 text-gold" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-foreground">Our Mission</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">Our Mission</h2>
               </div>
-              <p className="text-foreground text-base md:text-lg leading-relaxed">
-                To build and maintain the trust infrastructure for Filipino online fundraising — by 
-                establishing verification standards, promoting transparency, enforcing accountability, 
-                and providing the technology platform that enables safe, compliant, and impactful 
+              <p className="text-white/80 text-base md:text-lg leading-relaxed">
+                To build and maintain the trust infrastructure for Filipino online fundraising — by
+                establishing verification standards, promoting transparency, enforcing accountability,
+                and providing the technology platform that enables safe, compliant, and impactful
                 digital bayanihan.
               </p>
             </CardContent>
           </Card>
 
-          {/* Vision */}
-          <Card className="border-l-4 border-l-amber-500 bg-amber-50 dark:bg-amber-950/20">
+          {/* Vision Card - Navy bg */}
+          <Card className="bg-navy border-0 text-white">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
-                  <Eye className="h-6 w-6 text-amber-600" />
+                <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
+                  <Eye className="h-6 w-6 text-gold" />
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold text-foreground">Our Vision</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-white">Our Vision</h2>
               </div>
-              <p className="text-foreground text-base md:text-lg leading-relaxed">
-                A Philippines where every online fundraiser is trustworthy, every donor is confident, 
-                and every beneficiary receives the full support of a generous nation — powered by 
+              <p className="text-white/80 text-base md:text-lg leading-relaxed">
+                A Philippines where every online fundraiser is trustworthy, every donor is confident,
+                and every beneficiary receives the full support of a generous nation — powered by
                 technology, transparency, and the enduring spirit of bayanihan.
               </p>
             </CardContent>
@@ -119,37 +120,33 @@ export function MissionPage() {
 
       {/* Objectives */}
       <Section dark>
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Our Objectives
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Seven pillars that guide everything we do — from policy to platform development.
-          </p>
-        </div>
-
+        <SectionHeading
+          title="Our Objectives"
+          subtitle="Seven pillars that guide everything we do — from policy to platform development."
+          centered
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {objectives.map((obj) => {
             const Icon = obj.icon
             return (
               <Card
                 key={obj.number}
-                className="group hover:shadow-md transition-all duration-200 hover:border-primary/30 relative overflow-hidden"
+                className="group hover:shadow-md transition-all duration-200 hover:border-gold/30 relative overflow-hidden bg-white"
               >
                 <CardContent className="p-6">
-                  <div className="absolute top-4 right-4 text-6xl font-bold text-primary/5 leading-none">
+                  <div className="absolute top-4 right-4 text-6xl font-bold text-navy/5 leading-none">
                     {obj.number}
                   </div>
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                    <Icon className="h-6 w-6 text-gold" />
                   </div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-bold text-navy bg-gold/10 px-2 py-0.5 rounded-full">
                       {obj.number}
                     </span>
-                    <h3 className="text-lg font-semibold text-foreground">{obj.title}</h3>
+                    <h3 className="text-lg font-bold text-navy">{obj.title}</h3>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-[#4A5568] text-sm leading-relaxed">
                     {obj.description}
                   </p>
                 </CardContent>
@@ -159,14 +156,12 @@ export function MissionPage() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section>
-        <CTABlock
-          headline="Ready to be part of trust-first Filipino fundraising?"
-          subheadline="Whether you're starting a campaign or supporting one, Fundraise.ph and Fundraising.ph are here to help you every step of the way."
-          primaryText="Start or Support a Campaign on Fundraising.ph"
-        />
-      </Section>
+      {/* Page-end CTA */}
+      <CTABlock
+        headline="Ready to be part of trust-first Filipino fundraising?"
+        subheadline="Whether you're starting a campaign or supporting one, Fundraise.ph and Fundraising.ph are here to help you every step of the way."
+        primaryText="Start or Support a Campaign on Fundraising.ph"
+      />
     </div>
   )
 }

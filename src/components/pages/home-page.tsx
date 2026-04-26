@@ -2,14 +2,17 @@
 
 import Link from 'next/link'
 import { useNavigation } from '@/lib/navigation'
+import { Hero } from '@/components/shared/hero'
 import { Section } from '@/components/shared/section'
+import { SectionHeading } from '@/components/shared/section-heading'
+import { CTAButton } from '@/components/shared/cta-button'
 import { CTABlock } from '@/components/shared/cta-block'
-import { Button } from '@/components/ui/button'
+import { TrustPillar } from '@/components/shared/trust-pillar'
+import { SEOBlock } from '@/components/shared/seo-block'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import {
-  ArrowRight,
   ShieldCheck,
   Eye,
   Scale,
@@ -23,9 +26,11 @@ import {
   Globe,
   Lightbulb,
   BookOpen,
-  Sparkles,
+  FileCheck,
+  ArrowRight,
 } from 'lucide-react'
 
+/* ── Roadmap data ── */
 const roadmapItems = [
   { label: 'Verified Campaign Badge System', progress: 100 },
   { label: 'Donor Acknowledgment Engine', progress: 85 },
@@ -35,13 +40,12 @@ const roadmapItems = [
   { label: 'AI-Powered Campaign Review', progress: 40 },
   { label: 'Diaspora Giving Gateway', progress: 30 },
   { label: 'Open Data & Research API', progress: 20 },
-  { label: 'Bayanihan Trust Network Protocol', progress: 10 },
 ]
 
 function getProgressIcon(progress: number) {
-  if (progress === 100) return <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-  if (progress >= 50) return <CircleDot className="h-5 w-5 text-primary/70 shrink-0" />
-  return <Circle className="h-5 w-5 text-muted-foreground shrink-0" />
+  if (progress === 100) return <CheckCircle2 className="h-5 w-5 text-gold shrink-0" />
+  if (progress >= 50) return <CircleDot className="h-5 w-5 text-trust-blue shrink-0" />
+  return <Circle className="h-5 w-5 text-[#4A5568] shrink-0" />
 }
 
 function getProgressLabel(progress: number) {
@@ -52,36 +56,77 @@ function getProgressLabel(progress: number) {
   return 'Planned'
 }
 
+/* ── Why We Exist items ── */
+const whyWeExistItems = [
+  { icon: ShieldCheck, text: 'Trust must be earned and verified, not assumed' },
+  { icon: Eye, text: 'Verification protects both donors and beneficiaries' },
+  { icon: BookOpen, text: 'Documentation and receipts should be standard, not optional' },
+  { icon: Scale, text: 'Compliance guidance reduces risk for campaign organizers' },
+  { icon: Eye, text: 'Transparent fund flows build lasting donor confidence' },
+  { icon: HeartHandshake, text: 'Donor acknowledgment strengthens the culture of giving' },
+  { icon: Users, text: 'Accountability transforms one-time donations into lasting impact' },
+]
+
+/* ── Trust Pillars data ── */
 const pillars = [
   {
-    icon: ShieldCheck,
+    icon: <ShieldCheck className="h-6 w-6" />,
     title: 'Verification',
     description:
       'Every campaign on Fundraising.ph goes through a multi-layered verification process — identity checks, documentation review, and ongoing monitoring — so donors know their contributions reach real people with real needs.',
   },
   {
-    icon: Eye,
+    icon: <Eye className="h-6 w-6" />,
     title: 'Transparency',
     description:
       'Full visibility into fund flows, campaign milestones, and beneficiary updates. We publish regular impact reports and make all compliance documentation publicly accessible.',
   },
   {
-    icon: Scale,
+    icon: <Scale className="h-6 w-6" />,
     title: 'Compliance Guidance',
     description:
       'We help campaign organizers navigate Philippine fundraising regulations, SEC guidelines, and international compliance requirements — reducing risk and building public confidence.',
   },
   {
-    icon: HeartHandshake,
+    icon: <HeartHandshake className="h-6 w-6" />,
     title: 'Donor Acknowledgment',
     description:
       'Every donor receives proper acknowledgment, official receipts, and impact updates. We believe gratitude is not optional — it is foundational to sustainable giving.',
   },
   {
-    icon: Cpu,
+    icon: <Cpu className="h-6 w-6" />,
     title: 'Technology for Bayanihan',
     description:
       'We build and maintain the digital infrastructure that powers Fundraising.ph — from verification engines to marketplace fundraising tools — ensuring bayanihan thrives in the digital age.',
+  },
+]
+
+/* ── SEO FAQ items ── */
+const seoItems = [
+  {
+    question: 'What is Fundraise.ph?',
+    answer:
+      'Fundraise.ph is a nonprofit trust organization that builds the verification, transparency, and compliance infrastructure for Filipino digital fundraising. We are not a fundraising platform — we are the trust layer that ensures fundraising is done right.',
+  },
+  {
+    question: 'Is Fundraise.ph the same as Fundraising.ph?',
+    answer:
+      'No. Fundraise.ph is the nonprofit trust and governance organization that sets standards and verifies campaigns. Fundraising.ph is the actual fundraising platform where campaigns are created and donations are made. Together, they form a complete ecosystem of trusted Filipino giving.',
+  },
+  {
+    question: 'How does Fundraise.ph verify campaigns?',
+    answer:
+      'We use a multi-layered verification process including identity checks, documentation review, fund flow monitoring, and ongoing compliance assessment. Every campaign must meet our trust standards before receiving a verified badge on Fundraising.ph.',
+  },
+  {
+    question: 'Who can use Fundraising.ph?',
+    answer:
+      'Fundraising.ph is open to individuals, nonprofits, and organizations that need to raise funds for legitimate causes — from medical bills and disaster relief to education and community projects. All campaigns must pass through Fundraise.ph verification.',
+  },
+  {
+    question: 'Is my donation safe on Fundraising.ph?',
+    answer:
+      'Yes. Fundraising.ph is powered by the trust framework built by Fundraise.ph, which includes campaign verification, transparent fund tracking, donor acknowledgment, and compliance guidance. Every donation is accounted for and traceable.',
   },
 ]
 
@@ -90,200 +135,117 @@ export function HomePage() {
 
   return (
     <div>
-      {/* ===== HERO SECTION ===== */}
-      <section className="relative bg-gradient-hero text-white pattern-overlay overflow-hidden">
-        <div className="absolute inset-0 opacity-15">
-          <img src="/hero-banner.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
+      {/* ===== 1. HERO ===== */}
+      <Hero
+        badge="Nonprofit Trust Organization"
+        headline="The Trust Layer for Filipino Giving"
+        subheadline="Fundraise.ph is a nonprofit technology organization building the trusted fundraising infrastructure for Filipinos worldwide — strengthening bayanihan through transparency, verification, compliance guidance, marketplace fundraising, and accountable digital giving."
+      >
+        <div className="flex flex-col sm:flex-row items-start gap-4">
+          <CTAButton href="https://fundraising.ph" variant="primary" size="lg">
+            Go to Fundraising.ph
+          </CTAButton>
+          <CTAButton onClick={() => navigate('why-we-exist')} variant="secondary" size="lg">
+            Learn Why We Exist
+          </CTAButton>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
-          <div className="max-w-4xl">
-            <Badge className="bg-white/10 text-white border-white/20 mb-6 text-sm font-medium">
-              <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-              Nonprofit Trust Organization
-            </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              The Trust Layer for Filipino Giving
-            </h1>
-            <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-3xl">
-              Fundraise.ph is a nonprofit technology organization building the trusted fundraising
-              infrastructure for Filipinos worldwide — strengthening bayanihan through transparency,
-              verification, compliance guidance, marketplace fundraising, and accountable digital
-              giving.
-            </p>
-            <CTABlock
-              primaryText="Go to Fundraising.ph Platform"
-              primaryHref="https://fundraising.ph"
-              secondaryText="Learn Why We Exist"
-              secondaryOnClick={() => navigate('why-we-exist')}
-              variant="hero"
-            />
-          </div>
-        </div>
-      </section>
+      </Hero>
 
-      {/* ===== SECTION 1: WHAT IS FUNDRAISE.PH? ===== */}
+      {/* ===== 2. WHAT IS FUNDRAISE.PH? ===== */}
       <Section>
         <div className="max-w-4xl mx-auto text-center">
-          <Badge variant="secondary" className="mb-4">
-            About
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">What Is Fundraise.ph?</h2>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            <strong className="text-foreground">Fundraise.ph</strong> is the nonprofit mission and
+          <SectionHeading
+            title="What Is Fundraise.ph?"
+            subtitle="Understanding the two pillars of trusted Filipino fundraising"
+            centered
+          />
+          <p className="text-[#1A1A2E] text-lg leading-relaxed mb-6">
+            <strong className="text-navy font-bold">Fundraise.ph</strong> is the nonprofit mission and
             governance organization that sets the standards, policies, and trust framework for
             Filipino digital fundraising. We are not a fundraising platform ourselves — we are the
             trust layer that ensures fundraising is done right.
           </p>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            <strong className="text-foreground">Fundraising.ph</strong> is the actual fundraising
+          <p className="text-[#1A1A2E] text-lg leading-relaxed mb-8">
+            <strong className="text-navy font-bold">Fundraising.ph</strong> is the actual fundraising
             platform where campaigns are created, donations are made, and impact is delivered.
             Together, Fundraise.ph and Fundraising.ph form a complete ecosystem of trusted,
             transparent, and accountable giving for Filipinos.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => navigate('fundraise-vs-fundraising')}
-              className="font-semibold"
-            >
-              Understand the Difference
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
         </div>
       </Section>
 
-      {/* ===== SECTION 2: WHY WE EXIST ===== */}
+      {/* ===== 3. WHY WE EXIST ===== */}
       <Section dark>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <Badge variant="secondary" className="mb-4">
-              Our Purpose
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why We Exist</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-              Filipino giving deserves more than good intentions — it deserves infrastructure built
-              on trust, accountability, and transparency. We exist because:
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-            {[
-              {
-                icon: ShieldCheck,
-                text: 'Trust must be earned and verified, not assumed',
-              },
-              {
-                icon: Eye,
-                text: 'Verification protects both donors and beneficiaries',
-              },
-              {
-                icon: BookOpen,
-                text: 'Documentation and receipts should be standard, not optional',
-              },
-              {
-                icon: Scale,
-                text: 'Compliance guidance reduces risk for campaign organizers',
-              },
-              {
-                icon: Eye,
-                text: 'Transparent fund flows build lasting donor confidence',
-              },
-              {
-                icon: HeartHandshake,
-                text: 'Donor acknowledgment strengthens the culture of giving',
-              },
-              {
-                icon: Users,
-                text: 'Accountability transforms one-time donations into lasting impact',
-              },
-            ].map((item, idx) => (
+        <SectionHeading
+          title="Why We Exist"
+          subtitle="Filipino giving deserves more than good intentions — it deserves infrastructure built on trust, accountability, and transparency."
+          centered
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          {whyWeExistItems.map((item, idx) => {
+            const Icon = item.icon
+            return (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-4 rounded-xl bg-background/60 border border-border/50"
+                className="flex items-start gap-3 p-4 rounded-xl bg-white border border-border/50"
               >
-                <div className="mt-0.5 p-2 rounded-lg bg-primary/10 text-primary shrink-0">
-                  <item.icon className="h-5 w-5" />
+                <div className="mt-0.5 p-2 rounded-lg bg-gold/10 text-gold shrink-0">
+                  <Icon className="h-5 w-5" />
                 </div>
-                <p className="text-foreground font-medium leading-relaxed">{item.text}</p>
+                <p className="text-[#1A1A2E] font-medium leading-relaxed">{item.text}</p>
               </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Button
-              size="lg"
-              onClick={() => navigate('why-we-exist')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-            >
-              Read Our Full Story
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
+            )
+          })}
+        </div>
+        <div className="text-center">
+          <CTAButton onClick={() => navigate('why-we-exist')} variant="primary" size="lg">
+            Read Our Full Story
+          </CTAButton>
         </div>
       </Section>
 
-      {/* ===== SECTION 3: OUR TRUST PILLARS ===== */}
+      {/* ===== 4. OUR TRUST PILLARS ===== */}
       <Section>
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">
-            Foundation
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Trust Pillars</h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Five foundational pillars uphold every campaign, every donation, and every relationship
-            within the Fundraise.ph ecosystem.
-          </p>
-        </div>
+        <SectionHeading
+          title="Our Trust Pillars"
+          subtitle="Five foundational pillars uphold every campaign, every donation, and every relationship within the Fundraise.ph ecosystem."
+          centered
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pillars.map((pillar, idx) => (
-            <Card
+            <TrustPillar
               key={idx}
-              className="group hover:shadow-md transition-shadow duration-300 border-border/50"
-            >
-              <CardHeader>
-                <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit mb-2 group-hover:bg-primary/15 transition-colors">
-                  <pillar.icon className="h-6 w-6" />
-                </div>
-                <CardTitle className="text-xl">{pillar.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
-              </CardContent>
-            </Card>
+              icon={pillar.icon}
+              title={pillar.title}
+              description={pillar.description}
+            />
           ))}
         </div>
       </Section>
 
-      {/* ===== SECTION 4: FUNDRAISE.PH VS FUNDRAISING.PH ===== */}
+      {/* ===== 5. FUNDRAISE.PH VS FUNDRAISING.PH ===== */}
       <Section dark>
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">
-            Understanding the Ecosystem
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Fundraise.ph vs Fundraising.ph
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Two organizations, one mission: trusted Filipino giving. Here&apos;s how they work
-            together.
-          </p>
-        </div>
+        <SectionHeading
+          title="Fundraise.ph vs Fundraising.ph"
+          subtitle="Two organizations, one mission: trusted Filipino giving. Here's how they work together."
+          centered
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {/* Fundraise.ph Card */}
-          <Card className="border-primary/20 bg-primary/5">
+          <Card className="border-2 border-navy/30 bg-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 rounded-xl bg-primary text-primary-foreground">
+                <div className="p-2.5 rounded-xl bg-navy text-white">
                   <ShieldCheck className="h-6 w-6" />
                 </div>
-                <CardTitle className="text-2xl">Fundraise.ph</CardTitle>
+                <CardTitle className="text-2xl text-navy">Fundraise.ph</CardTitle>
               </div>
-              <Badge className="w-fit bg-primary/15 text-primary border-primary/20">
+              <Badge className="w-fit bg-navy/10 text-navy border-navy/20">
                 Nonprofit Trust & Governance
               </Badge>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed mb-4">
+              <p className="text-[#4A5568] leading-relaxed mb-4">
                 The nonprofit organization that builds the trust framework, sets campaign standards,
                 manages verification, provides compliance guidance, and ensures transparency across
                 all fundraising activity.
@@ -297,8 +259,8 @@ export function HomePage() {
                   'Builds and maintains trust technology',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                    <span className="text-muted-foreground">{item}</span>
+                    <CheckCircle2 className="h-4 w-4 text-navy mt-0.5 shrink-0" />
+                    <span className="text-[#4A5568]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -306,20 +268,20 @@ export function HomePage() {
           </Card>
 
           {/* Fundraising.ph Card */}
-          <Card className="border-accent/20 bg-accent/5">
+          <Card className="border-2 border-gold/40 bg-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2.5 rounded-xl bg-accent text-accent-foreground">
+                <div className="p-2.5 rounded-xl bg-gold text-navy">
                   <Globe className="h-6 w-6" />
                 </div>
-                <CardTitle className="text-2xl">Fundraising.ph</CardTitle>
+                <CardTitle className="text-2xl text-navy">Fundraising.ph</CardTitle>
               </div>
-              <Badge className="w-fit bg-accent/15 text-accent-foreground border-accent/20">
+              <Badge className="w-fit bg-gold/10 text-navy border-gold/30">
                 Fundraising Platform
               </Badge>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed mb-4">
+              <p className="text-[#4A5568] leading-relaxed mb-4">
                 The fundraising platform where campaigns are created, donations are collected, and
                 beneficiaries receive support. Powered by the trust framework established by
                 Fundraise.ph.
@@ -333,8 +295,8 @@ export function HomePage() {
                   'Connects beneficiaries with supporters',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 shrink-0" />
-                    <span className="text-muted-foreground">{item}</span>
+                    <CheckCircle2 className="h-4 w-4 text-gold mt-0.5 shrink-0" />
+                    <span className="text-[#4A5568]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -342,50 +304,42 @@ export function HomePage() {
           </Card>
         </div>
         <div className="text-center mt-10">
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-            <Link href="https://fundraising.ph" target="_blank" rel="noopener noreferrer">
-              <ArrowRight className="mr-2 h-4 w-4" />
-              Go to Fundraising.ph Platform
-            </Link>
-          </Button>
+          <CTAButton href="https://fundraising.ph" variant="primary" size="lg">
+            Go to Fundraising.ph Platform
+          </CTAButton>
         </div>
       </Section>
 
-      {/* ===== SECTION 5: FEATURED FOUNDING STORY ===== */}
+      {/* ===== 6. FEATURED FOUNDING STORY ===== */}
       <Section>
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <Badge variant="secondary" className="mb-4">
+              <Badge className="mb-4 bg-gold/10 text-gold border-gold/30">
                 <Store className="h-3.5 w-3.5 mr-1.5" />
                 Founding Member Story
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
                 Serg&apos;s Chocolates and the Culture of Giving
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              <p className="text-[#1A1A2E] text-lg leading-relaxed mb-4">
                 Before Fundraise.ph was a platform, it was a chocolate company with a mission.
                 Serg&apos;s Chocolates demonstrated that Filipino businesses could build trust
                 through radical transparency — showing exactly where money goes and who it helps.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-[#4A5568] leading-relaxed mb-6">
                 That philosophy of documented impact and community accountability became the
                 founding principle of Fundraise.ph: every peso tracked, every donor acknowledged,
                 every beneficiary treated with dignity.
               </p>
-              <Button
-                size="lg"
-                onClick={() => navigate('sergs-chocolates')}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-              >
+              <CTAButton onClick={() => navigate('sergs-chocolates')} variant="primary" size="default">
                 Read the Serg&apos;s Founding Story
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              </CTAButton>
             </div>
             <div className="bg-gradient-hero rounded-2xl p-8 md:p-10 text-white pattern-overlay">
               <div className="flex flex-col items-center text-center gap-4">
-                <Store className="h-16 w-16 text-accent" />
-                <h3 className="text-2xl font-bold">Serg&apos;s Chocolates</h3>
+                <Store className="h-16 w-16 text-gold" />
+                <h3 className="text-2xl font-bold text-white">Serg&apos;s Chocolates</h3>
                 <p className="text-white/70 leading-relaxed">
                   &ldquo;From bean-to-bar chocolate to bean-to-beneficiary transparency — the origin
                   story of trusted Filipino giving.&rdquo;
@@ -399,34 +353,28 @@ export function HomePage() {
         </div>
       </Section>
 
-      {/* ===== SECTION 6: TECHNOLOGY ROADMAP PREVIEW ===== */}
+      {/* ===== 7. TECHNOLOGY ROADMAP PREVIEW ===== */}
       <Section dark>
+        <SectionHeading
+          title="Technology Roadmap Preview"
+          subtitle="We're building the infrastructure for trustworthy Filipino giving — one milestone at a time."
+          centered
+        />
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <Badge variant="secondary" className="mb-4">
-              <Lightbulb className="h-3.5 w-3.5 mr-1.5" />
-              Technology
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Technology Roadmap Preview</h2>
-            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-              We&apos;re building the infrastructure for trustworthy Filipino giving — one
-              milestone at a time.
-            </p>
-          </div>
           <div className="space-y-4 mb-10">
             {roadmapItems.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-background/60 border border-border/50 rounded-xl p-4 md:p-5"
+                className="bg-white border border-border/50 rounded-xl p-4 md:p-5"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-3">
                     {getProgressIcon(item.progress)}
-                    <span className="font-medium text-foreground">{item.label}</span>
+                    <span className="font-medium text-[#1A1A2E]">{item.label}</span>
                   </div>
                   <Badge
                     variant={item.progress === 100 ? 'default' : 'secondary'}
-                    className="shrink-0 ml-2"
+                    className={`shrink-0 ml-2 ${item.progress === 100 ? 'bg-gold text-navy' : ''}`}
                   >
                     {getProgressLabel(item.progress)}
                   </Badge>
@@ -436,60 +384,46 @@ export function HomePage() {
             ))}
           </div>
           <div className="text-center">
-            <Button
-              size="lg"
-              onClick={() => navigate('technology-roadmap')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-            >
-              View the Technology Roadmap
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <CTAButton onClick={() => navigate('technology-roadmap')} variant="primary" size="default">
+              View the Full Technology Roadmap
+            </CTAButton>
           </div>
         </div>
       </Section>
 
-      {/* ===== SECTION 7: JOIN THE MOVEMENT ===== */}
+      {/* ===== 8. JOIN THE MOVEMENT ===== */}
       <Section>
         <div className="max-w-4xl mx-auto text-center">
-          <Badge variant="secondary" className="mb-4">
-            <Users className="h-3.5 w-3.5 mr-1.5" />
-            Community
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Join the Movement</h2>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-4 max-w-3xl mx-auto">
-            Whether you&apos;re a nonprofit organization, a Filipino business, a diaspora community
-            leader, a developer, a compliance professional, or simply someone who believes that
-            Filipino giving deserves better infrastructure — there&apos;s a place for you in the
-            Fundraise.ph ecosystem.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
+          <SectionHeading
+            title="Join the Movement"
+            subtitle="Whether you're a nonprofit organization, a Filipino business, a diaspora community leader, a developer, a compliance professional, or simply someone who believes that Filipino giving deserves better infrastructure — there's a place for you in the Fundraise.ph ecosystem."
+            centered
+          />
+          <p className="text-[#4A5568] leading-relaxed mb-8 max-w-3xl mx-auto">
             We invite all types of partners to join us in building a future where every donation is
             verified, every campaign is transparent, and every act of bayanihan is honored with
             accountability.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              size="lg"
-              onClick={() => navigate('partner-with-us')}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-            >
+            <CTAButton onClick={() => navigate('partner-with-us')} variant="primary" size="lg">
               Partner With Fundraise.ph
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button asChild variant="outline" size="lg" className="font-semibold">
-              <Link href="https://fundraising.ph" target="_blank" rel="noopener noreferrer">
-                Go to Fundraising.ph
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            </CTAButton>
+            <CTAButton href="https://fundraising.ph" variant="secondary" size="lg">
+              Go to Fundraising.ph
+            </CTAButton>
           </div>
         </div>
       </Section>
 
-      {/* ===== PAGE-END CTA BLOCK ===== */}
-      <Section className="!py-0">
-        <CTABlock variant="default" />
+      {/* ===== 9. SEO/AIO BLOCK ===== */}
+      <Section dark>
+        <div className="max-w-4xl mx-auto">
+          <SEOBlock items={seoItems} />
+        </div>
       </Section>
+
+      {/* ===== 10. PAGE-END CTA BLOCK ===== */}
+      <CTABlock />
     </div>
   )
 }

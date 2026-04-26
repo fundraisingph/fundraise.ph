@@ -2,29 +2,22 @@
 
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
+import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
-import { useNavigation } from '@/lib/navigation'
+import { Card, CardContent } from '@/components/ui/card'
 import {
-  Candy,
   ShoppingBag,
-  Gift,
-  Heart,
   Package,
   Repeat,
-  Users,
-  Globe,
-  Star,
-  Percent,
-  Link2,
-  Archive,
-  Quote,
-  Coffee,
+  Gift,
   Home,
   Handshake,
-  ArrowRight,
+  Percent,
+  Star,
+  Coffee,
+  Link2,
+  Candy,
+  Quote,
 } from 'lucide-react'
 
 const marketplaceWays = [
@@ -81,8 +74,6 @@ const marketplaceWays = [
 ]
 
 export function SergsChocolatesPage() {
-  const { navigate } = useNavigation()
-
   return (
     <div>
       <PageHeader
@@ -94,24 +85,21 @@ export function SergsChocolatesPage() {
       {/* Narrative Section */}
       <Section>
         <div className="max-w-3xl mx-auto">
-          <Badge variant="secondary" className="mb-4 text-sm">
-            Founding Member Story
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            The Story Behind the Chocolate
-          </h2>
-
-          <div className="prose prose-neutral max-w-none space-y-5">
-            <p className="text-muted-foreground text-lg leading-relaxed">
+          <SectionHeading
+            title="The Story Behind the Chocolate"
+            centered={false}
+          />
+          <div className="space-y-5">
+            <p className="text-[#4A5568] text-lg leading-relaxed">
               In the Philippines, chocolate is more than a treat. It is a tradition woven into the fabric of family, community, and homecoming. From the tablea stirred into morning tsokolate to the chocolate bars tucked into balikbayan boxes, Filipino chocolate carries meaning far beyond its ingredients.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-[#4A5568] text-lg leading-relaxed">
               Serg's Chocolates was born from this tradition — a craft chocolate maker dedicated to elevating Filipino cacao while honoring the communities that grow it. But Serg's story goes deeper than the product itself.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-[#4A5568] text-lg leading-relaxed">
               As Fundraise.ph was being conceived, the question arose: what does it look like when a product-based business becomes a founding pillar of a trust organization for fundraising? Serg's Chocolates answered that question — not with theory, but with practice.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-[#4A5568] text-lg leading-relaxed">
               Every bar of Serg's chocolate sold through Fundraising.ph can carry a fundraising purpose. A portion can go to a medical campaign. A bundle can fund a classroom. A gift box can rebuild a home after a typhoon. The product becomes the vehicle; the community is the destination.
             </p>
           </div>
@@ -120,17 +108,17 @@ export function SergsChocolatesPage() {
 
       {/* Key Insight */}
       <Section dark>
-        <div className="max-w-3xl mx-auto text-center">
-          <Card className="border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 shadow-lg">
-            <CardContent className="pt-8 pb-8 px-6 md:px-10">
-              <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-6">
-                <Candy className="h-8 w-8 text-amber-600" />
+        <div className="max-w-3xl mx-auto">
+          <Card className="border-2 border-gold/40 bg-gradient-to-br from-[#0A1F44] to-[#1A2D52] shadow-lg">
+            <CardContent className="pt-8 pb-8 px-6 md:px-10 text-center">
+              <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+                <Candy className="h-8 w-8 text-gold" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-amber-900 mb-4 leading-snug">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
                 A chocolate bar can be a pasalubong, a thank-you gift, a reward, a remembrance from home, or a small comfort during hard times.
               </h3>
-              <Separator className="my-6 bg-amber-200" />
-              <p className="text-amber-800/80 text-lg leading-relaxed">
+              <div className="my-6 h-px bg-gold/30 max-w-xs mx-auto" />
+              <p className="text-white/70 text-lg leading-relaxed">
                 In Filipino culture, every act of giving carries meaning. When that act of giving also supports a verified campaign, the chocolate bar transforms from a product into a bridge — connecting the person who buys it with the community that benefits from it.
               </p>
             </CardContent>
@@ -140,38 +128,30 @@ export function SergsChocolatesPage() {
 
       {/* Marketplace Fundraising Connection */}
       <Section>
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 text-sm">
-            Marketplace Fundraising
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            10 Ways Fundraising.ph Enables Product-Based Fundraising
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Serg's Chocolates is one example of how the marketplace turns everyday purchases into acts of bayanihan. Here are all the ways Fundraising.ph makes this possible.
-          </p>
-        </div>
-
+        <SectionHeading
+          title="10 Ways Fundraising.ph Enables Product-Based Fundraising"
+          subtitle="Serg's Chocolates is one example of how the marketplace turns everyday purchases into acts of bayanihan. Here are all the ways Fundraising.ph makes this possible."
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {marketplaceWays.map((way, index) => {
             const Icon = way.icon
             return (
               <div
                 key={index}
-                className="group bg-card border rounded-xl p-5 hover:shadow-md transition-all duration-300 hover:border-primary/30"
+                className="group bg-white border border-navy/10 rounded-xl p-5 hover:shadow-md hover:border-gold/40 transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 group-hover:bg-amber-100 transition-colors">
-                    <Icon className="h-4.5 w-4.5" />
+                  <div className="w-9 h-9 rounded-lg bg-trust-blue/10 text-trust-blue flex items-center justify-center shrink-0 group-hover:bg-trust-blue/20 transition-colors">
+                    <Icon className="h-4 w-4" />
                   </div>
-                  <span className="text-xs font-bold text-muted-foreground">
+                  <span className="text-xs font-bold text-[#4A5568]">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h3 className="font-semibold text-sm leading-snug mb-2">
+                <h3 className="font-semibold text-sm text-navy leading-snug mb-2">
                   {way.title}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-xs text-[#4A5568] leading-relaxed">
                   {way.description}
                 </p>
               </div>
@@ -183,15 +163,15 @@ export function SergsChocolatesPage() {
       {/* Closing Quote */}
       <Section dark>
         <div className="max-w-3xl mx-auto">
-          <Card className="border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-lg">
+          <Card className="border-2 border-gold/40 bg-gradient-to-br from-[#0A1F44] to-[#1A2D52] shadow-lg">
             <CardContent className="pt-8 pb-8 px-6 md:px-10 text-center">
-              <Quote className="h-10 w-10 text-emerald-400 mx-auto mb-4" />
-              <blockquote className="text-xl md:text-2xl font-semibold text-emerald-900 leading-relaxed mb-6">
+              <Quote className="h-10 w-10 text-gold mx-auto mb-4" />
+              <blockquote className="text-xl md:text-2xl font-semibold text-white leading-relaxed mb-6">
                 &ldquo;A bar of chocolate can be more than a product. It can be a gift. It can be a memory. It can be a thank-you. It can be pasalubong. It can be a small act of bayanihan.&rdquo;
               </blockquote>
-              <Separator className="my-4 bg-emerald-200 max-w-xs mx-auto" />
-              <p className="text-emerald-700 font-medium">
-                — The spirit behind Serg's Chocolates and Fundraise.ph
+              <div className="my-4 h-px bg-gold/30 max-w-xs mx-auto" />
+              <p className="text-gold font-medium">
+                — The spirit behind Serg&apos;s Chocolates and Fundraise.ph
               </p>
             </CardContent>
           </Card>
@@ -199,14 +179,12 @@ export function SergsChocolatesPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section>
-        <CTABlock
-          headline="Support the revival of Filipino craft chocolate and Filipino community fundraising"
-          subheadline="Serg's Chocolates is working toward a revival campaign on Fundraising.ph. Be part of the story."
-          primaryText="Support the Serg's Revival Campaign on Fundraising.ph"
-          primaryHref="https://fundraising.ph"
-        />
-      </Section>
+      <CTABlock
+        headline="Support the revival of Filipino craft chocolate and Filipino community fundraising"
+        subheadline="Serg's Chocolates is working toward a revival campaign on Fundraising.ph. Be part of the story."
+        primaryText="Support the Serg's Revival Campaign on Fundraising.ph"
+        primaryHref="https://fundraising.ph"
+      />
     </div>
   )
 }

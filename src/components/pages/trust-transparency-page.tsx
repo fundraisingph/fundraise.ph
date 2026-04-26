@@ -2,73 +2,46 @@
 
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
+import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { useNavigation } from '@/lib/navigation'
-import {
-  ShieldCheck,
-  Compass,
-  BarChart3,
-  FileText,
-  TrendingUp,
-  CheckCircle2,
-  Eye,
-  Users,
-  Lock,
-  Globe,
-  Heart,
-  Scale,
-  AlertTriangle,
-  RefreshCw,
-  ArrowRight,
-} from 'lucide-react'
+import { TrustFrameworkStep } from '@/components/shared/trust-framework-step'
+import { CheckCircle2, ShieldCheck, Compass, BarChart3, FileText, TrendingUp, Eye, Globe, Scale, Lock, Users, AlertTriangle, RefreshCw, Heart } from 'lucide-react'
 
 const trustSteps = [
   {
     step: 1,
+    icon: <ShieldCheck className="h-5 w-5" />,
     title: 'Verify',
-    icon: ShieldCheck,
     description:
       'Every campaign undergoes identity and documentation review before going live. We confirm who is raising funds and why.',
-    color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
-    iconBg: 'bg-emerald-100',
   },
   {
     step: 2,
+    icon: <Compass className="h-5 w-5" />,
     title: 'Guide',
-    icon: Compass,
     description:
       'Campaigners receive step-by-step guidance on compliance, documentation, and ethical storytelling requirements.',
-    color: 'text-teal-600 bg-teal-50 border-teal-200',
-    iconBg: 'bg-teal-100',
   },
   {
     step: 3,
+    icon: <BarChart3 className="h-5 w-5" />,
     title: 'Track',
-    icon: BarChart3,
     description:
       'Fund flows, milestones, and updates are tracked and made visible to donors and the public in real time.',
-    color: 'text-cyan-600 bg-cyan-50 border-cyan-200',
-    iconBg: 'bg-cyan-100',
   },
   {
     step: 4,
+    icon: <FileText className="h-5 w-5" />,
     title: 'Report',
-    icon: FileText,
     description:
       'Post-campaign reports detail how funds were used, with receipts, photos, and impact narratives published openly.',
-    color: 'text-amber-600 bg-amber-50 border-amber-200',
-    iconBg: 'bg-amber-100',
   },
   {
     step: 5,
+    icon: <TrendingUp className="h-5 w-5" />,
     title: 'Improve',
-    icon: TrendingUp,
     description:
       'Every cycle feeds back into our standards. We refine processes, update guidelines, and strengthen safeguards continuously.',
-    color: 'text-orange-600 bg-orange-50 border-orange-200',
-    iconBg: 'bg-orange-100',
   },
 ]
 
@@ -126,8 +99,6 @@ const transparencyCommitments = [
 ]
 
 export function TrustTransparencyPage() {
-  const { navigate } = useNavigation()
-
   return (
     <div>
       <PageHeader
@@ -138,97 +109,51 @@ export function TrustTransparencyPage() {
 
       {/* Trust Framework Section */}
       <Section>
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 text-sm">
-            Our Trust Framework
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Five Steps to Accountable Fundraising
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From the moment a campaign is submitted to long after it concludes,
-            our trust framework ensures every step is documented, reviewable, and
-            improving.
-          </p>
-        </div>
-
-        <div className="relative">
-          {/* Connection line (desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-300 via-amber-300 to-orange-300 -translate-y-1/2 z-0" />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
-            {trustSteps.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <Card
-                  key={step.step}
-                  className={`border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${step.color}`}
-                >
-                  <CardHeader className="text-center pb-2">
-                    <div
-                      className={`mx-auto w-14 h-14 rounded-full ${step.iconBg} flex items-center justify-center mb-3`}
-                    >
-                      <Icon className="h-7 w-7" />
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <span className="text-xs font-bold uppercase tracking-wider opacity-70">
-                        Step {step.step}
-                      </span>
-                    </div>
-                    <CardTitle className="text-xl">{step.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center text-sm leading-relaxed opacity-80">
-                    {step.description}
-                  </CardContent>
-                  {index < trustSteps.length - 1 && (
-                    <div className="flex justify-center lg:hidden pb-2">
-                      <ArrowRight className="h-5 w-5 opacity-40 rotate-90 lg:rotate-0" />
-                    </div>
-                  )}
-                </Card>
-              )
-            })}
-          </div>
+        <SectionHeading
+          title="Five Steps to Accountable Fundraising"
+          subtitle="From the moment a campaign is submitted to long after it concludes, our trust framework ensures every step is documented, reviewable, and improving."
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {trustSteps.map((step) => (
+            <TrustFrameworkStep
+              key={step.step}
+              step={step.step}
+              icon={step.icon}
+              title={step.title}
+              description={step.description}
+            />
+          ))}
         </div>
       </Section>
 
       {/* Transparency Commitments Section */}
       <Section dark>
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 text-sm">
-            Our Commitments
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Transparency Commitments
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            These are not aspirations. They are operational commitments — built
-            into our platform, our policies, and our governance.
-          </p>
-        </div>
-
+        <SectionHeading
+          title="Transparency Commitments"
+          subtitle="These are not aspirations. They are operational commitments — built into our platform, our policies, and our governance."
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {transparencyCommitments.map((commitment, index) => {
             const Icon = commitment.icon
             return (
               <div
                 key={index}
-                className="group bg-card border rounded-xl p-5 hover:shadow-md transition-all duration-300 hover:border-primary/30"
+                className="group bg-white border border-navy/10 rounded-xl p-5 hover:shadow-md hover:border-gold/40 transition-all duration-300"
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 transition-colors">
-                    <Icon className="h-4.5 w-4.5" />
+                  <div className="w-9 h-9 rounded-lg bg-trust-blue/10 text-trust-blue flex items-center justify-center shrink-0 group-hover:bg-trust-blue/20 transition-colors">
+                    <Icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-sm leading-snug mb-1.5">
+                    <h3 className="font-semibold text-sm text-navy leading-snug mb-1.5">
                       {commitment.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-[#4A5568] leading-relaxed">
                       {commitment.description}
                     </p>
                   </div>
                 </div>
-                <div className="mt-3 flex items-center gap-1.5 text-emerald-600">
+                <div className="mt-3 flex items-center gap-1.5 text-trust-blue">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   <span className="text-xs font-medium">Committed</span>
                 </div>
@@ -239,14 +164,12 @@ export function TrustTransparencyPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section>
-        <CTABlock
-          headline="See trust in action"
-          subheadline="Explore verified campaigns, transparent fund flows, and community-driven accountability on Fundraising.ph."
-          primaryText="Explore Fundraising.ph"
-          primaryHref="https://fundraising.ph"
-        />
-      </Section>
+      <CTABlock
+        headline="See trust in action"
+        subheadline="Explore verified campaigns, transparent fund flows, and community-driven accountability on Fundraising.ph."
+        primaryText="Explore Fundraising.ph"
+        primaryHref="https://fundraising.ph"
+      />
     </div>
   )
 }

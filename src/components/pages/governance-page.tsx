@@ -2,14 +2,9 @@
 
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
+import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import {
   Lock,
@@ -131,116 +126,107 @@ export function GovernancePage() {
         description="Fundraise.ph is governed by principles that ensure every decision, every policy, and every action is accountable, transparent, and aligned with our mission to serve Filipino communities."
       />
 
+      {/* Governance Principles */}
       <Section>
-        {/* Governance Principles */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Six Governance Principles
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              These principles form the backbone of how Fundraise.ph operates.
-              They are non-negotiable commitments embedded in our organizational
-              DNA.
-            </p>
-          </div>
+        <SectionHeading
+          title="Six Governance Principles"
+          subtitle="These principles form the backbone of how Fundraise.ph operates. They are non-negotiable commitments embedded in our organizational DNA."
+          centered
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {principles.map((principle, index) => (
-              <Card
-                key={index}
-                className="group transition-all duration-200 hover:shadow-md hover:border-primary/30"
-              >
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary/15 transition-colors">
-                    {principle.icon}
-                  </div>
-                  <CardTitle className="text-xl">{principle.title}</CardTitle>
-                  <CardDescription className="text-sm leading-relaxed">
-                    {principle.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {principle.details.map((detail, detailIndex) => (
-                      <li
-                        key={detailIndex}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
-                      >
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-1.5" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {principles.map((principle, index) => (
+            <Card
+              key={index}
+              className="group transition-all duration-200 hover:shadow-md hover:border-[#C8A951]/30 h-full"
+            >
+              <CardHeader>
+                <div className="w-14 h-14 rounded-xl bg-[#0A1F44]/10 text-[#0A1F44] flex items-center justify-center mb-3 group-hover:bg-[#C8A951]/15 transition-colors">
+                  {principle.icon}
+                </div>
+                <CardTitle className="text-xl text-[#0A1F44]">{principle.title}</CardTitle>
+                <CardDescription className="text-[#4A5568] text-sm leading-relaxed">
+                  {principle.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {principle.details.map((detail, detailIndex) => (
+                    <li
+                      key={detailIndex}
+                      className="flex items-start gap-2 text-sm text-[#4A5568]"
+                    >
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C8A951] flex-shrink-0 mt-1.5" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* Policies to Publish */}
+      <Section dark>
+        <div className="text-center mb-10">
+          <div className="w-14 h-14 rounded-xl bg-[#0A1F44]/10 text-[#0A1F44] flex items-center justify-center mx-auto mb-4">
+            <FileText className="h-7 w-7" />
           </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A1F44] mb-3">
+            Policies to Publish
+          </h2>
+          <p className="text-[#4A5568] max-w-2xl mx-auto leading-relaxed">
+            As part of our commitment to transparency by default, the following
+            16 governance and operational policies will be publicly accessible on
+            the Compliance Library once finalized.
+          </p>
         </div>
 
-        {/* Policies to Publish */}
-        <div className="mb-16">
-          <Section dark>
-            <div className="text-center mb-8">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-4">
-                <FileText className="h-7 w-7" />
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                Policies to Publish
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                As part of our commitment to transparency by default, the
-                following 16 governance and operational policies will be
-                publicly accessible on the Compliance Library once finalized.
+        <div className="flex flex-wrap justify-center gap-3">
+          {policiesToPublish.map((policy, index) => (
+            <Badge
+              key={index}
+              variant="outline"
+              className="px-4 py-2 text-sm font-medium border-[#0A1F44]/20 hover:bg-[#C8A951]/10 transition-colors cursor-default"
+            >
+              {policy}
+            </Badge>
+          ))}
+        </div>
+      </Section>
+
+      {/* Governance Commitment */}
+      <Section>
+        <Card className="border-[#C8A951]/20 bg-gradient-to-br from-[#0A1F44]/5 to-[#0A1F44]/10">
+          <CardContent className="p-6 md:p-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-xl md:text-2xl font-bold text-[#0A1F44] mb-4">
+                Our Commitment to Accountable Governance
+              </h3>
+              <p className="text-[#4A5568] leading-relaxed mb-4">
+                Governance at Fundraise.ph is not a checkbox — it is a living
+                practice. Every trustee, officer, and team member is bound by
+                these principles, and every policy is subject to public scrutiny
+                and continuous improvement.
+              </p>
+              <p className="text-[#4A5568] leading-relaxed">
+                We believe that the communities we serve deserve nothing less
+                than full accountability. When trust is the product, governance
+                is the foundation.
               </p>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              {policiesToPublish.map((policy, index) => (
-                <Badge
-                  key={index}
-                  variant="outline"
-                  className="px-4 py-2 text-sm font-medium border-primary/20 hover:bg-primary/5 transition-colors cursor-default"
-                >
-                  {policy}
-                </Badge>
-              ))}
-            </div>
-          </Section>
-        </div>
-
-        {/* Governance Commitment */}
-        <div className="mb-16">
-          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
-            <CardContent className="p-6 md:p-8">
-              <div className="max-w-3xl mx-auto text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                  Our Commitment to Accountable Governance
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Governance at Fundraise.ph is not a checkbox — it is a living
-                  practice. Every trustee, officer, and team member is bound by
-                  these principles, and every policy is subject to public
-                  scrutiny and continuous improvement.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  We believe that the communities we serve deserve nothing less
-                  than full accountability. When trust is the product, governance
-                  is the foundation.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* CTA */}
-        <CTABlock
-          headline="Trust is built on transparency."
-          subheadline="Explore our governance framework, review our policies, and hold us accountable. Public trust is our most valuable asset."
-          primaryText="View Compliance Library"
-          primaryHref="https://fundraising.ph"
-        />
+          </CardContent>
+        </Card>
       </Section>
+
+      {/* CTA */}
+      <CTABlock
+        headline="Trust is built on transparency."
+        subheadline="Explore our governance framework, review our policies, and hold us accountable. Public trust is our most valuable asset."
+        primaryText="View Compliance Library"
+        primaryHref="https://fundraising.ph"
+      />
     </div>
   )
 }

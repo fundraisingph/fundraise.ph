@@ -9,24 +9,13 @@ import { HomePage } from '@/components/pages/home-page'
 import { WhyWeExistPage } from '@/components/pages/why-we-exist-page'
 import { MissionPage } from '@/components/pages/mission-page'
 import { TrustTransparencyPage } from '@/components/pages/trust-transparency-page'
-import { FundraiseVsFundraisingPage } from '@/components/pages/fundraise-vs-fundraising-page'
 import { TechnologyRoadmapPage } from '@/components/pages/technology-roadmap-page'
-import { GovernancePage } from '@/components/pages/governance-page'
-import { TeamTrusteesPage } from '@/components/pages/team-trustees-page'
 import { FoundingStoryPage } from '@/components/pages/founding-story-page'
 import { SergsChocolatesPage } from '@/components/pages/sergs-chocolates-page'
+import { TeamPage } from '@/components/pages/team-page'
+import { GovernancePage } from '@/components/pages/governance-page'
 import { ImpactPage } from '@/components/pages/impact-page'
-import { AnnualReportsPage } from '@/components/pages/annual-reports-page'
-import { CampaignStandardsPage } from '@/components/pages/campaign-standards-page'
-import { ComplianceLibraryPage } from '@/components/pages/compliance-library-page'
-import { VerificationFrameworkPage } from '@/components/pages/verification-framework-page'
-import { PublicImpactDashboardPage } from '@/components/pages/public-impact-dashboard-page'
-import { BayanihanStoriesPage } from '@/components/pages/bayanihan-stories-page'
-import { DiasporaGivingPage } from '@/components/pages/diaspora-giving-page'
-import { ResearchPolicyPage } from '@/components/pages/research-policy-page'
 import { PartnerWithUsPage } from '@/components/pages/partner-with-us-page'
-import { ContactPage } from '@/components/pages/contact-page'
-import { FaqPage } from '@/components/pages/faq-page'
 import { BlogPage } from '@/components/pages/blog-page'
 
 const pageComponents: Record<string, React.ComponentType> = {
@@ -34,24 +23,13 @@ const pageComponents: Record<string, React.ComponentType> = {
   'why-we-exist': WhyWeExistPage,
   'mission': MissionPage,
   'trust-transparency': TrustTransparencyPage,
-  'fundraise-vs-fundraising': FundraiseVsFundraisingPage,
   'technology-roadmap': TechnologyRoadmapPage,
-  'governance': GovernancePage,
-  'team-trustees': TeamTrusteesPage,
   'founding-story': FoundingStoryPage,
   'sergs-chocolates': SergsChocolatesPage,
+  'team': TeamPage,
+  'governance': GovernancePage,
   'impact': ImpactPage,
-  'annual-reports': AnnualReportsPage,
-  'campaign-standards': CampaignStandardsPage,
-  'compliance-library': ComplianceLibraryPage,
-  'verification-framework': VerificationFrameworkPage,
-  'public-impact-dashboard': PublicImpactDashboardPage,
-  'bayanihan-stories': BayanihanStoriesPage,
-  'diaspora-giving': DiasporaGivingPage,
-  'research-policy': ResearchPolicyPage,
   'partner-with-us': PartnerWithUsPage,
-  'contact': ContactPage,
-  'faq': FaqPage,
   'blog': BlogPage,
 }
 
