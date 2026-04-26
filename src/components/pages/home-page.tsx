@@ -17,7 +17,7 @@ import {
   Cpu,
   CheckCircle2,
   Circle,
-  HalfCircle,
+  CircleDot,
   Store,
   Users,
   Globe,
@@ -40,7 +40,7 @@ const roadmapItems = [
 
 function getProgressIcon(progress: number) {
   if (progress === 100) return <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-  if (progress >= 50) return <HalfCircle className="h-5 w-5 text-primary/70 shrink-0" />
+  if (progress >= 50) return <CircleDot className="h-5 w-5 text-primary/70 shrink-0" />
   return <Circle className="h-5 w-5 text-muted-foreground shrink-0" />
 }
 
