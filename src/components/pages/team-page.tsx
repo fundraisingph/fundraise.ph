@@ -204,7 +204,6 @@ export function TeamPage() {
       <CTABlock
         headline="Support the mission of trusted Filipino fundraising."
         subheadline="Every donation through Fundraising.ph goes through our verification and compliance framework. Your support builds the trust layer for Filipino giving."
-        primaryText="Support Campaigns Through Fundraising.ph"
       />
     </div>
   )

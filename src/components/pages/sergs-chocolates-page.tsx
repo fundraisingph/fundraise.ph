@@ -328,8 +328,6 @@ export function SergsChocolatesPage() {
       <CTABlock
         headline="Support the revival of Filipino craft chocolate and Filipino community fundraising"
         subheadline="Serg's Chocolates is working toward a revival campaign on Fundraising.ph — where every purchase is an act of bayanihan."
-        primaryText="Support the Serg's Revival Campaign on Fundraising.ph"
-        primaryHref="https://fundraising.ph"
       />
     </div>
   )

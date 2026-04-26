@@ -165,7 +165,6 @@ export function MissionPage() {
       <CTABlock
         headline="Ready to be part of trust-first Filipino fundraising?"
         subheadline="Whether you're starting a campaign or supporting one, Fundraise.ph and Fundraising.ph are here to help you every step of the way."
-        primaryText="Start or Support a Campaign on Fundraising.ph"
       />
     </div>
   )

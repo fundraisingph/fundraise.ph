@@ -8,7 +8,6 @@ import { Hero } from '@/components/shared/hero'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { CTAButton } from '@/components/shared/cta-button'
-import { CTABlock } from '@/components/shared/cta-block'
 import { TrustPillar } from '@/components/shared/trust-pillar'
 import { SEOBlock } from '@/components/shared/seo-block'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -147,10 +146,7 @@ export function HomePage() {
         variation={heroVar}
       >
         <div className="flex flex-col sm:flex-row items-start gap-4">
-          <CTAButton href="https://fundraising.ph" variant="primary" size="lg">
-            Go to Fundraising.ph
-          </CTAButton>
-          <CTAButton onClick={() => navigate('why-we-exist')} variant="secondary" size="lg">
+          <CTAButton onClick={() => navigate('why-we-exist')} variant="primary" size="lg">
             Learn Why We Exist
           </CTAButton>
         </div>
@@ -308,11 +304,7 @@ export function HomePage() {
             </CardContent>
           </Card>
         </div>
-        <div className="text-center mt-10">
-          <CTAButton href="https://fundraising.ph" variant="primary" size="lg">
-            Go to Fundraising.ph Platform
-          </CTAButton>
-        </div>
+
       </Section>
 
       {/* ===== 6. FEATURED FOUNDING STORY ===== */}
@@ -414,9 +406,6 @@ export function HomePage() {
             <CTAButton onClick={() => navigate('partner-with-us')} variant="primary" size="lg">
               Partner With Fundraise.ph
             </CTAButton>
-            <CTAButton href="https://fundraising.ph" variant="secondary" size="lg">
-              Go to Fundraising.ph
-            </CTAButton>
           </div>
         </div>
       </Section>
@@ -427,9 +416,6 @@ export function HomePage() {
           <SEOBlock items={seoItems} />
         </div>
       </Section>
-
-      {/* ===== 10. PAGE-END CTA BLOCK ===== */}
-      <CTABlock />
     </div>
   )
 }

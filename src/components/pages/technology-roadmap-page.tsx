@@ -195,8 +195,6 @@ export function TechnologyRoadmapPage() {
       <CTABlock
         headline="Join us in building the trust layer for Filipino giving."
         subheadline="Every phase of our roadmap is designed with transparency and community at its core. Help us build, test, and improve Fundraising.ph."
-        primaryText="Build With Us on Fundraising.ph"
-        primaryHref="https://fundraising.ph"
       />
     </div>
   )

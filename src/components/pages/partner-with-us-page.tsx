@@ -7,7 +7,6 @@ import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
 import { PartnerCategory } from '@/components/shared/partner-category'
-import { CTAButton } from '@/components/shared/cta-button'
 import { Badge } from '@/components/ui/badge'
 import {
   Heart,
@@ -161,14 +160,7 @@ export function PartnerWithUsPage() {
         <CTABlock
           headline="Ready to build trust together?"
           subheadline="Join the ecosystem of organizations committed to transparent, accountable Filipino fundraising."
-          primaryText="Become a Fundraise.ph Partner"
-          primaryHref="https://fundraising.ph"
         />
-        <div className="text-center mt-6">
-          <CTAButton href="https://fundraising.ph" variant="secondary" size="default">
-            Go to Fundraising.ph
-          </CTAButton>
-        </div>
       </Section>
     </div>
   )

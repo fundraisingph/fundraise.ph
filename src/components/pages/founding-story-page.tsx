@@ -269,7 +269,6 @@ export function FoundingStoryPage() {
       <CTABlock
         headline="Ready to join the trust-first fundraising movement?"
         subheadline="Explore our mission, see our impact, or start a verified campaign on Fundraising.ph."
-        primaryText="Go to Fundraising.ph Platform"
       />
     </div>
   )

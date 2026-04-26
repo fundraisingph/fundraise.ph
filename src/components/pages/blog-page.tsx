@@ -260,8 +260,6 @@ export function BlogPage() {
       <CTABlock
         headline="Explore the ecosystem"
         subheadline="Read our standards, explore verified campaigns, or start your own transparent fundraiser on Fundraising.ph."
-        primaryText="Go to Fundraising.ph"
-        primaryHref="https://fundraising.ph"
       />
     </div>
   )

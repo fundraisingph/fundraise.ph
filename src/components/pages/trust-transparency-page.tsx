@@ -172,8 +172,6 @@ export function TrustTransparencyPage() {
       <CTABlock
         headline="See trust in action"
         subheadline="Explore verified campaigns, transparent fund flows, and community-driven accountability on Fundraising.ph."
-        primaryText="Explore Fundraising.ph"
-        primaryHref="https://fundraising.ph"
       />
     </div>
   )

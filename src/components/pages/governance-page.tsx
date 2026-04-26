@@ -229,8 +229,6 @@ export function GovernancePage() {
       <CTABlock
         headline="Trust is built on transparency."
         subheadline="Explore our governance framework, review our policies, and hold us accountable. Public trust is our most valuable asset."
-        primaryText="View Compliance Library"
-        primaryHref="https://fundraising.ph"
       />
     </div>
   )

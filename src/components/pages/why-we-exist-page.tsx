@@ -156,7 +156,6 @@ export function WhyWeExistPage() {
       <CTABlock
         headline="Want to understand how we're building trust?"
         subheadline="Explore our mission, verification framework, and the platform that brings it all together."
-        primaryText="Explore Our Mission"
       />
     </div>
   )

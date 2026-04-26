@@ -235,8 +235,6 @@ export function ImpactPage() {
       <CTABlock
         headline="See impact as it happens"
         subheadline="When our dashboard launches, every metric will be public, verifiable, and updated in real time. For now, explore the campaigns building that impact."
-        primaryText="View Campaigns on Fundraising.ph"
-        primaryHref="https://fundraising.ph"
       />
     </div>
   )
