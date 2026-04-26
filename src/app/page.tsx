@@ -26,7 +26,7 @@ import { DiasporaGivingPage } from '@/components/pages/diaspora-giving-page'
 import { ResearchPolicyPage } from '@/components/pages/research-policy-page'
 import { PartnerWithUsPage } from '@/components/pages/partner-with-us-page'
 import { ContactPage } from '@/components/pages/contact-page'
-import { FAQPage } from '@/components/pages/faq-page'
+import { FaqPage } from '@/components/pages/faq-page'
 import { BlogPage } from '@/components/pages/blog-page'
 
 const pageComponents: Record<string, React.ComponentType> = {
@@ -51,7 +51,7 @@ const pageComponents: Record<string, React.ComponentType> = {
   'research-policy': ResearchPolicyPage,
   'partner-with-us': PartnerWithUsPage,
   'contact': ContactPage,
-  'faq': FAQPage,
+  'faq': FaqPage,
   'blog': BlogPage,
 }
 
