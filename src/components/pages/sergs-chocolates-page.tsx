@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -74,12 +76,15 @@ const marketplaceWays = [
 ]
 
 export function SergsChocolatesPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['sergs-chocolates'])
+
   return (
     <div>
       <PageHeader
         title="Founding Member Story: Serg's Chocolates and the Culture of Giving"
-        headline="From Filipino chocolate heritage to Filipino bayanihan infrastructure."
-        description="Serg's Chocolates is not just a product — it is a story of how Filipino craft, culture, and community connect. As a founding member of Fundraise.ph, Serg's Chocolates embodies the bridge between product and purpose."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Narrative Section */}

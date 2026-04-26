@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -62,12 +64,15 @@ const timelineEvents = [
 ]
 
 export function FoundingStoryPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['founding-story'])
+
   return (
     <div>
       <PageHeader
         title="Our Founding Story"
-        headline="From bayanihan to digital trust infrastructure."
-        description="How one observation about Filipino generosity — and the trust gap holding it back — led to the creation of Fundraise.ph."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* The Beginning */}

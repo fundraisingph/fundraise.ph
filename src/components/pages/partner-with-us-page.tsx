@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -81,12 +83,15 @@ const partnerTypes = [
 ]
 
 export function PartnerWithUsPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['partner-with-us'])
+
   return (
     <div>
       <PageHeader
         title="Partner With Fundraise.ph"
-        headline="Help build the trusted fundraising infrastructure for Filipinos worldwide."
-        description="Whether you're an NGO, a corporate sponsor, a diaspora organization, or a technology provider — there's a place for you in the Fundraise.ph ecosystem."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Partner Types Section */}

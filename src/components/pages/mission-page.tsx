@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -70,12 +72,15 @@ const objectives = [
 ]
 
 export function MissionPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['mission'])
+
   return (
     <div>
       <PageHeader
         title="Mission, Vision & Objectives"
-        headline="Strengthening bayanihan through trust, transparency, and technology"
-        description="Fundraise.ph exists to build the trust layer that makes Filipino fundraising safer, more accountable, and more impactful — for every donor and every beneficiary."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Mission & Vision */}

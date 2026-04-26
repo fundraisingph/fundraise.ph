@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -95,14 +97,16 @@ const futureDashboardMetrics = [
 
 export function ImpactPage() {
   const { navigate } = useNavigation()
+  const { current: heroVar } = useRotatingContent(heroVariations['impact'])
   const [activeCategory, setActiveCategory] = useState<number | null>(null)
 
   return (
     <div>
       <PageHeader
         title="Our Impact"
-        headline="Impact is not only money raised. Impact is trust created."
-        description="We measure what matters — not just amounts, but accountability, reach, trust, and the real difference made in Filipino communities."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Impact Categories */}

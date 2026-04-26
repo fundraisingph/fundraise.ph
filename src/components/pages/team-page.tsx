@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -96,12 +98,15 @@ const profileTemplate = [
 ]
 
 export function TeamPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['team'])
+
   return (
     <div>
       <PageHeader
         title="Team & Trustees"
-        headline="Guided by people committed to trust, transparency, technology, and Filipino community impact."
-        description="The Board of Trustees provides independent oversight, strategic guidance, and community accountability for Fundraise.ph. Each trustee role is designed to protect a specific aspect of public trust."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Board of Trustees */}

@@ -193,3 +193,33 @@ Stage Summary:
 - All shared component imports verified (TeamCard, PartnerCategory, SectionHeading, CTAButton, CTABlock)
 - Consistent navy/gold color usage across all 5 pages
 - Zero lint errors, clean compilation
+
+---
+Task ID: hero-rotation
+Agent: hero-rotation-agent
+Task: Update all 12 page components to use rotating hero system
+
+Work Log:
+- Updated /src/components/pages/home-page.tsx: Added useRotatingContent hook with key 'home', Hero now uses heroVar.headline, heroVar.subheadline, variation={heroVar}
+- Updated /src/components/pages/why-we-exist-page.tsx: Added useRotatingContent hook with key 'why-we-exist', PageHeader uses heroVar.headline, heroVar.subheadline (as description), variation={heroVar}
+- Updated /src/components/pages/mission-page.tsx: Added useRotatingContent hook with key 'mission', PageHeader uses dynamic hero content
+- Updated /src/components/pages/trust-transparency-page.tsx: Added useRotatingContent hook with key 'trust-transparency', PageHeader uses dynamic hero content
+- Updated /src/components/pages/technology-roadmap-page.tsx: Added useRotatingContent hook with key 'technology-roadmap', PageHeader uses dynamic hero content
+- Updated /src/components/pages/founding-story-page.tsx: Added useRotatingContent hook with key 'founding-story', PageHeader uses dynamic hero content
+- Updated /src/components/pages/sergs-chocolates-page.tsx: Added useRotatingContent hook with key 'sergs-chocolates', PageHeader uses dynamic hero content
+- Updated /src/components/pages/team-page.tsx: Added useRotatingContent hook with key 'team', PageHeader uses dynamic hero content
+- Updated /src/components/pages/governance-page.tsx: Added useRotatingContent hook with key 'governance', PageHeader uses dynamic hero content
+- Updated /src/components/pages/impact-page.tsx: Added useRotatingContent hook with key 'impact', PageHeader uses dynamic hero content
+- Updated /src/components/pages/partner-with-us-page.tsx: Added useRotatingContent hook with key 'partner-with-us', PageHeader uses dynamic hero content
+- Updated /src/components/pages/blog-page.tsx: Added useRotatingContent hook with key 'blog', PageHeader uses dynamic hero content
+- All 12 pages now rotate through 5 hero variations (headline, subheadline, accent color, gradient) every 8 seconds
+- All existing page content below hero/header sections preserved unchanged
+- All component export names unchanged
+- Lint check: PASSED (zero errors)
+- Dev server: Compiles cleanly
+
+Stage Summary:
+- All 12 page components now use rotating hero system via useRotatingContent + heroVariations
+- Each page has 5 variations with different Filipino-centric accent colors (gold, red, sunshine, emerald, blue)
+- Hero and PageHeader components render {keyword} markers with accent color highlights
+- Zero lint errors, clean compilation

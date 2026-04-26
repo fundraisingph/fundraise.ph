@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -56,12 +58,15 @@ const needsList = [
 ]
 
 export function WhyWeExistPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['why-we-exist'])
+
   return (
     <div>
       <PageHeader
         title="Why Fundraise.ph Exists"
-        headline="Bayanihan is powerful. Trust makes it scalable."
-        description="Filipinos are among the most generous people on earth. But generosity without trust infrastructure is fragile. Fundraise.ph exists to protect and amplify the spirit of bayanihan."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* The Trust Gap */}

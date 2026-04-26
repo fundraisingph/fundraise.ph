@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { useNavigation } from '@/lib/navigation'
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { Hero } from '@/components/shared/hero'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -132,14 +134,16 @@ const seoItems = [
 
 export function HomePage() {
   const { navigate } = useNavigation()
+  const { current: heroVar } = useRotatingContent(heroVariations['home'])
 
   return (
     <div>
       {/* ===== 1. HERO ===== */}
       <Hero
         badge="Nonprofit Trust Organization"
-        headline="The Trust Layer for Filipino Giving"
-        subheadline="Fundraise.ph is a nonprofit technology organization building the trusted fundraising infrastructure for Filipinos worldwide — strengthening bayanihan through transparency, verification, compliance guidance, marketplace fundraising, and accountable digital giving."
+        headline={heroVar.headline}
+        subheadline={heroVar.subheadline}
+        variation={heroVar}
       >
         <div className="flex flex-col sm:flex-row items-start gap-4">
           <CTAButton href="https://fundraising.ph" variant="primary" size="lg">

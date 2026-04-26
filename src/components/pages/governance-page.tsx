@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -118,12 +120,15 @@ const policiesToPublish = [
 ]
 
 export function GovernancePage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['governance'])
+
   return (
     <div>
       <PageHeader
         title="Governance"
-        headline="Public trust begins with internal discipline."
-        description="Fundraise.ph is governed by principles that ensure every decision, every policy, and every action is accountable, transparent, and aligned with our mission to serve Filipino communities."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Governance Principles */}

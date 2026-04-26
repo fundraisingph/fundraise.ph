@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -97,6 +99,7 @@ const complianceEducationArticles = [
 ]
 
 export function BlogPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['blog'])
   const [activeCategory, setActiveCategory] = useState('All')
 
   const filteredPosts =
@@ -108,8 +111,9 @@ export function BlogPage() {
     <div>
       <PageHeader
         title="Trustee Notes & Bayanihan Insights"
-        headline="Insights on trust, transparency, technology, and Filipino giving."
-        description="Perspectives from the Fundraise.ph team and trustees on building the trust layer for Filipino fundraising."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Blog Category Filters + Posts */}

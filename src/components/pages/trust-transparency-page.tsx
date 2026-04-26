@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -99,12 +101,15 @@ const transparencyCommitments = [
 ]
 
 export function TrustTransparencyPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['trust-transparency'])
+
   return (
     <div>
       <PageHeader
         title="Trust & Transparency"
-        headline="Trust is not a slogan. Trust is a system."
-        description="Fundraise.ph exists to build the trust layer for Filipino fundraising. Every process, every policy, and every line of code is designed to make trust verifiable — not assumed."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       {/* Trust Framework Section */}

@@ -1,5 +1,7 @@
 'use client'
 
+import { useRotatingContent } from '@/hooks/use-rotating-content'
+import { heroVariations } from '@/lib/hero-variations'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -159,12 +161,15 @@ const phases = [
 ]
 
 export function TechnologyRoadmapPage() {
+  const { current: heroVar } = useRotatingContent(heroVariations['technology-roadmap'])
+
   return (
     <div>
       <PageHeader
         title="Technology Roadmap"
-        headline="Building the technology infrastructure for digital bayanihan."
-        description="Our phased approach ensures every feature is built on a foundation of trust, compliance, and community impact. From nonprofit incorporation to institutional partnerships, each phase brings us closer to transparent and verified fundraising for every Filipino."
+        headline={heroVar.headline}
+        description={heroVar.subheadline}
+        variation={heroVar}
       />
 
       <Section>
