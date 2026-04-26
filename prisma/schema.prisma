@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,20 +10,55 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model AdminUser {
   id        String   @id @default(cuid())
   email     String   @unique
-  name      String?
+  name      String
+  password  String
+  role      String   @default("admin") // admin, editor, viewer
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Post {
-  id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model PartnerApplication {
+  id              String   @id @default(cuid())
+  organizationName String
+  contactPerson   String
+  email           String
+  phone           String
+  partnerType     String   // NGO, School, Church, LGU, Corporate Sponsor, Supplier, Diaspora Org, Technology Partner, Legal/Compliance
+  website         String?
+  description     String
+  mission         String?
+  howHeard        String?
+  agreedToTerms   Boolean  @default(false)
+  status          String   @default("pending") // pending, under_review, approved, rejected
+  reviewNotes     String?
+  reviewedBy      String?
+  reviewedAt      DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  category    String
+  excerpt     String
+  content     String   // JSON string of content paragraphs
+  author      String
+  authorRole  String
+  readTime    String
+  published   Boolean  @default(false)
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime?
+}
+
+model SiteSetting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
 }

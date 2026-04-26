@@ -497,6 +497,49 @@ export const heroVariations: Record<string, HeroVariation[]> = {
     },
   ],
 
+  'partner-application': [
+    {
+      headline: 'Apply to Join the {Trusted} Fundraising Ecosystem',
+      subheadline: 'Submit your partner application and help build the future of transparent, accountable Filipino fundraising. Every partnership strengthens trust for all.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Partner} With Fundraise.ph for Filipino Communities',
+      subheadline: 'Join NGOs, schools, churches, corporations, and diaspora organizations committed to verified, transparent fundraising for Filipinos.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'Your Organization Can {Strengthen} Trust in Giving',
+      subheadline: 'Every partner commits to the same verification, transparency, and accountability standards. Together, we raise the bar for Filipino fundraising.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+    {
+      headline: 'From {Application} to Verified Partner',
+      subheadline: 'A simple, transparent process: apply, get reviewed, onboard, and go live as a trusted partner in the Fundraise.ph ecosystem.',
+      accentColor: accentColors.emerald,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#0D2A50',
+      patternColor: 'rgba(0, 107, 63, 0.07)',
+    },
+    {
+      headline: 'Building {Bayanihan} Infrastructure Together',
+      subheadline: 'Your partnership directly enables more Filipinos to access trusted fundraising — from local communities to the global diaspora.',
+      accentColor: accentColors.blue,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#162E54',
+      patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+  ],
+
   blog: [
     {
       headline: '{Insights} on Trust, Transparency, and Filipino Giving',

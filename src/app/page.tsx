@@ -16,7 +16,9 @@ import { TeamPage } from '@/components/pages/team-page'
 import { GovernancePage } from '@/components/pages/governance-page'
 import { ImpactPage } from '@/components/pages/impact-page'
 import { PartnerWithUsPage } from '@/components/pages/partner-with-us-page'
+import { PartnerApplicationPage } from '@/components/pages/partner-application-page'
 import { BlogPage } from '@/components/pages/blog-page'
+import { AdminDashboardPage } from '@/components/pages/admin-dashboard-page'
 
 const pageComponents: Record<string, React.ComponentType> = {
   'home': HomePage,
@@ -30,7 +32,9 @@ const pageComponents: Record<string, React.ComponentType> = {
   'governance': GovernancePage,
   'impact': ImpactPage,
   'partner-with-us': PartnerWithUsPage,
+  'partner-application': PartnerApplicationPage,
   'blog': BlogPage,
+  'admin': AdminDashboardPage,
 }
 
 export default function Home() {
@@ -41,6 +45,11 @@ export default function Home() {
   }, [])
 
   const PageComponent = pageComponents[currentPage] || HomePage
+
+  // Admin page has its own full layout (sidebar, no header/footer)
+  if (currentPage === 'admin') {
+    return <AdminDashboardPage />
+  }
 
   return (
     <div className="min-h-screen flex flex-col">

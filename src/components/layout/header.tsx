@@ -164,7 +164,7 @@ export function Header() {
           {/* Header CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="https://fundraising.ph"
+              href="https://dev.fundraising.ph"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-gold hover:bg-[#B8943F] text-navy font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
@@ -244,7 +244,7 @@ export function Header() {
 
                 <div className="mt-4 pt-4 border-t border-white/10">
                   <Link
-                    href="https://fundraising.ph"
+                    href="https://dev.fundraising.ph"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-full bg-gold hover:bg-[#B8943F] text-navy font-semibold text-sm px-4 py-3 rounded-lg transition-colors"

@@ -12,7 +12,9 @@ export type PageId =
   | 'governance'
   | 'impact'
   | 'partner-with-us'
+  | 'partner-application'
   | 'blog'
+  | 'admin'
 
 interface NavigationState {
   currentPage: PageId
@@ -29,7 +31,8 @@ const getPageFromHash = (): PageId => {
 const validPages: PageId[] = [
   'home', 'why-we-exist', 'mission', 'trust-transparency',
   'technology-roadmap', 'founding-story', 'sergs-chocolates',
-  'team', 'governance', 'impact', 'partner-with-us', 'blog'
+  'team', 'governance', 'impact', 'partner-with-us',
+  'partner-application', 'blog', 'admin'
 ]
 
 function isValidPage(hash: string): boolean {
@@ -67,5 +70,7 @@ export const pageTitles: Record<PageId, string> = {
   'governance': 'Governance',
   'impact': 'Impact',
   'partner-with-us': 'Partner With Us',
+  'partner-application': 'Partner Application',
   'blog': 'Trustee Notes & Blog',
+  'admin': 'Admin Dashboard',
 }

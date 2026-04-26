@@ -2,12 +2,14 @@
 
 import { useRotatingContent } from '@/hooks/use-rotating-content'
 import { heroVariations } from '@/lib/hero-variations'
+import { useNavigation } from '@/lib/navigation'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
 import { PartnerCategory } from '@/components/shared/partner-category'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import {
   Heart,
   GraduationCap,
@@ -22,6 +24,8 @@ import {
   ShieldCheck,
   Users,
   TrendingUp,
+  ArrowRight,
+  FileText,
 } from 'lucide-react'
 
 const partnerTypes = [
@@ -83,6 +87,7 @@ const partnerTypes = [
 
 export function PartnerWithUsPage() {
   const { current: heroVar } = useRotatingContent(heroVariations['partner-with-us'])
+  const { navigate } = useNavigation()
 
   return (
     <div>
@@ -110,6 +115,22 @@ export function PartnerWithUsPage() {
               description={partner.description}
             />
           ))}
+        </div>
+
+        {/* Apply Now CTA */}
+        <div className="mt-12 text-center">
+          <Button
+            onClick={() => navigate('partner-application')}
+            size="lg"
+            className="bg-gold hover:bg-[#B8943F] text-navy font-semibold px-8 py-6 text-base rounded-lg"
+          >
+            <FileText className="mr-2 h-5 w-5" />
+            Submit a Partner Application
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+          <p className="mt-3 text-sm text-[#4A5568]">
+            Take the first step toward building trust together
+          </p>
         </div>
       </Section>
 
@@ -152,6 +173,41 @@ export function PartnerWithUsPage() {
               trust, more campaigns, and greater donor confidence.
             </p>
           </div>
+        </div>
+      </Section>
+
+      {/* Application Process */}
+      <Section>
+        <SectionHeading
+          title="How to Become a Partner"
+          subtitle="A simple, transparent process to join the Fundraise.ph ecosystem"
+          centered
+        />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {[
+            { step: '1', title: 'Submit Application', desc: 'Fill out our partner application form with your organization details' },
+            { step: '2', title: 'Review Process', desc: 'Our team reviews your application and alignment with trust standards' },
+            { step: '3', title: 'Onboarding', desc: 'Complete onboarding, agree to partnership standards, and set up your profile' },
+            { step: '4', title: 'Go Live', desc: 'Start operating as a verified partner in the Fundraise.ph ecosystem' },
+          ].map((item) => (
+            <div key={item.step} className="text-center">
+              <div className="w-12 h-12 rounded-full bg-navy text-white font-bold text-lg flex items-center justify-center mx-auto mb-3">
+                {item.step}
+              </div>
+              <h4 className="font-semibold text-navy mb-1">{item.title}</h4>
+              <p className="text-sm text-[#4A5568]">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Button
+            onClick={() => navigate('partner-application')}
+            size="lg"
+            className="bg-navy hover:bg-[#0D2A5A] text-white font-semibold px-8 py-6 text-base rounded-lg"
+          >
+            <Handshake className="mr-2 h-5 w-5" />
+            Start Your Application
+          </Button>
         </div>
       </Section>
 

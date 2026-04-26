@@ -147,7 +147,7 @@ export function Footer() {
             <span>Bayanihan deserves modern infrastructure.</span>
           </div>
           <Link
-            href="https://fundraising.ph"
+            href="https://dev.fundraising.ph"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-gold hover:bg-[#B8943F] text-navy font-semibold px-6 py-2.5 rounded-lg transition-colors text-sm"
