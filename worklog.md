@@ -95,3 +95,23 @@ Stage Summary:
 - Full CRUD for partners and blog posts
 - Settings management
 - Not visible in main site navigation (admin only)
+
+---
+Task ID: 7
+Agent: main
+Task: Write two interconnected OFW-focused blog articles
+
+Work Log:
+- Wrote Article 1: "The Billion-Peso Bayanihan: How OFWs Power the Philippine Economy and Why Their Generosity Deserves Better" (10 min read, ~29 paragraphs)
+- Wrote Article 2: "Ghost Projects and Real Bayanihan: Why OFWs Must Lead the Fight Against Corruption Through Radical Transparency" (9 min read, ~27 paragraphs)
+- Added both articles to the static blog page (blog-page.tsx) in the blogPosts array
+- Added new "OFW & Diaspora" category to blogCategories
+- Published both articles to the database via /api/blog-posts (both featured and published)
+- Lint check passed, dev server compiles cleanly
+
+Stage Summary:
+- Two interconnected OFW articles published on the blog page and in the database
+- Article 1 positions OFWs as economic heroes with $33.5B GDP contribution, kapwa culture, and the trust gap
+- Article 2 contrasts government ghost projects with authentic Bayanihan, positioning trackable giving as the anti-corruption solution
+- Both articles cross-reference each other's themes and drive toward Fundraising.ph as the solution
+- New "OFW & Diaspora" category added to blog navigation
