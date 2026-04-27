@@ -41,7 +41,7 @@ const blogPosts: BlogPost[] = [
     id: 'why-verification-layered',
     title: 'Why Verification Must Be Layered, Not Binary',
     category: 'Verification',
-    date: 'February 28, 2025',
+    date: 'October 15, 2026',
     readTime: '6 min read',
     excerpt:
       'A single "verified" badge tells donors nothing about what was actually checked. At Fundraise.ph, verification is progressive — from basic identity review to compliance-sensitive review — because trust is earned in layers, not granted in one step.',
@@ -64,7 +64,7 @@ const blogPosts: BlogPost[] = [
     id: 'filipino-fundraising-trust-layer',
     title: 'The Case for a Filipino Fundraising Trust Layer',
     category: 'Trust & Transparency',
-    date: 'February 15, 2025',
+    date: 'July 1, 2026',
     readTime: '7 min read',
     excerpt:
       "Without standardized verification, transparent fund tracking, and compliance guidance, Filipino fundraising remains vulnerable. Here's why a dedicated trust organization is essential — and why it must be independent from any single platform.",
@@ -85,7 +85,7 @@ const blogPosts: BlogPost[] = [
     id: 'sergs-chocolates-marketplace-model',
     title: "How Serg's Chocolates Gave Birth to Fundraising.ph",
     category: 'Product Partnerships',
-    date: 'January 30, 2025',
+    date: 'July 15, 2026',
     readTime: '8 min read',
     excerpt:
       "Serg's Chocolates didn't just inspire Fundraising.ph — it conceptualized it. When a heritage chocolate brand's revival plan needed a platform that didn't exist, the gap became an opportunity to build something for every Filipino.",
@@ -105,7 +105,7 @@ const blogPosts: BlogPost[] = [
     id: 'ethical-storytelling',
     title: 'Ethical Storytelling: Protecting Beneficiary Dignity in Campaigns',
     category: 'Ethical Storytelling',
-    date: 'January 15, 2025',
+    date: 'August 1, 2026',
     readTime: '6 min read',
     excerpt:
       'The stories behind campaigns are powerful — but they must be told with consent, care, and respect. At Fundraise.ph, we require every campaign to follow ethical storytelling guidelines that protect the dignity of every beneficiary.',
@@ -128,7 +128,7 @@ const blogPosts: BlogPost[] = [
     id: 'what-is-fundraise-ph',
     title: 'What Is Fundraise.ph? The Trust Layer for Filipino Fundraising',
     category: 'Trust & Transparency',
-    date: 'January 10, 2025',
+    date: 'June 1, 2026',
     readTime: '5 min read',
     excerpt:
       'Fundraise.ph is not a fundraising platform. It is the nonprofit trust organization that builds the verification, transparency, and compliance infrastructure behind Fundraising.ph — ensuring that Filipino fundraising is done right.',
@@ -149,7 +149,7 @@ const blogPosts: BlogPost[] = [
     id: 'verification-badges-explained',
     title: 'Verification Badges Explained: What Each Badge Means for Donors',
     category: 'Verification',
-    date: 'January 5, 2025',
+    date: 'November 10, 2026',
     readTime: '5 min read',
     excerpt:
       'Not all verified badges are created equal. At Fundraise.ph, each badge represents a specific level of verification — so donors know exactly what has been checked before they give.',
@@ -170,7 +170,7 @@ const blogPosts: BlogPost[] = [
     id: 'compliance-library-guide',
     title: 'Compliance Library: A Free Resource for Responsible Fundraising',
     category: 'Compliance',
-    date: 'December 28, 2024',
+    date: 'November 25, 2026',
     readTime: '6 min read',
     excerpt:
       'Most Filipino campaign organizers don\'t know their legal obligations. Fundraise.ph\'s Compliance Library provides free, accessible guidance on the regulations that affect every fundraiser in the Philippines.',
@@ -194,7 +194,7 @@ const blogPosts: BlogPost[] = [
     id: 'filipino-diaspora-giving',
     title: 'Diaspora Giving: Connecting Overseas Filipinos to Trusted Campaigns at Home',
     category: 'Diaspora Giving',
-    date: 'December 20, 2024',
+    date: 'January 15, 2027',
     readTime: '6 min read',
     excerpt:
       'Over 10 million Filipinos live abroad, and they send billions home each year. But when it comes to digital fundraising, diaspora Filipinos face a unique trust gap — they want to help, but they can\'t verify from afar.',
@@ -218,7 +218,7 @@ const blogPosts: BlogPost[] = [
     id: 'governance-principles',
     title: 'Six Governance Principles That Protect Filipino Fundraising',
     category: 'Governance',
-    date: 'December 15, 2024',
+    date: 'June 15, 2026',
     readTime: '7 min read',
     excerpt:
       'Governance at Fundraise.ph is not a checkbox — it is a living practice. Our six non-negotiable principles ensure that the organization remains accountable, transparent, and always aligned with its mission.',
@@ -240,7 +240,7 @@ const blogPosts: BlogPost[] = [
     id: 'fundraising-standards',
     title: 'Campaign Standards: The Minimum Requirements for Every Filipino Campaign',
     category: 'Fundraising Standards',
-    date: 'December 10, 2024',
+    date: 'August 20, 2026',
     readTime: '6 min read',
     excerpt:
       'Every campaign on Fundraising.ph must meet minimum standards before going live. These standards protect donors, beneficiaries, and the integrity of Filipino digital fundraising.',
@@ -263,7 +263,7 @@ const blogPosts: BlogPost[] = [
     id: 'technology-bayanihan',
     title: 'Technology for Bayanihan: Building Digital Infrastructure for Filipino Giving',
     category: 'Technology',
-    date: 'December 5, 2024',
+    date: 'September 10, 2026',
     readTime: '7 min read',
     excerpt:
       'Bayanihan has sustained Filipino communities for centuries. Our mission is to build the digital infrastructure that allows it to thrive in the age of online fundraising — without losing the trust that makes it meaningful.',
@@ -288,7 +288,7 @@ const blogPosts: BlogPost[] = [
     id: 'community-impact',
     title: 'Measuring What Matters: Beyond Money Raised to Trust Created',
     category: 'Community Impact',
-    date: 'November 28, 2024',
+    date: 'March 15, 2027',
     readTime: '5 min read',
     excerpt:
       'The success of Filipino fundraising should not be measured only by pesos raised. It should be measured by trust created, beneficiaries served, donors acknowledged, and communities strengthened.',
@@ -311,7 +311,7 @@ const blogPosts: BlogPost[] = [
     id: 'dswd-permit-guide',
     title: 'Do You Need a DSWD Permit to Fundraise in the Philippines?',
     category: 'Compliance',
-    date: 'November 20, 2024',
+    date: 'December 12, 2026',
     readTime: '5 min read',
     excerpt:
       'One of the most common questions from Filipino campaign organizers: do I need a DSWD permit? The answer depends on several factors. Here is a practical guide.',
@@ -334,10 +334,10 @@ const blogPosts: BlogPost[] = [
     ],
   },
   {
-    id: 'platform-updates-q1-2025',
-    title: 'Platform Update: What We Built in Q1 2025 and What\'s Coming Next',
+    id: 'platform-updates-q3-2026',
+    title: 'Platform Update: What We Built in Q3 2026 and What\'s Coming Next',
     category: 'Platform Updates',
-    date: 'November 15, 2024',
+    date: 'September 30, 2026',
     readTime: '4 min read',
     excerpt:
       'A progress update on Fundraise.ph and Fundraising.ph — what we launched, what we\'re building, and what comes next in our roadmap to trusted Filipino fundraising.',
@@ -349,7 +349,7 @@ const blogPosts: BlogPost[] = [
       'The Fundraise.ph website — you\'re looking at it. This site communicates our mission, trust framework, governance principles, verification standards, and founding story. It serves as the public face of the trust organization and the home for our Compliance Library, trustee notes, and community resources.',
       'Our founding narrative — the story of how Serg\'s Chocolates conceptualized Fundraising.ph as part of its revival plan, and how Fundraise.ph was established as the independent trust layer behind the platform.',
       'Our governance framework — six non-negotiable principles that guide every decision: mission lock, transparency by default, compliance-aware operations, conflict-of-interest management, human oversight over automation, and beneficiary dignity.',
-      '**What We\'re Building (Phase 2):**',
+      '**What We\'re Building (Phase 2 — Fundraising.ph Platform Launch):**',
       'The Fundraising.ph platform — the operational fundraising platform where verified campaigns will launch, donations will be collected, and impact will be delivered. Core features include campaign onboarding, donor acknowledgment, basic verification, and campaign updates.',
       'The verification engine — multi-layered verification workflows progressing from identity checks through documentation review, fund flow tracking, and compliance-sensitive review.',
       'The compliance guidance system — integrated checklists, permit guides, and regulatory education embedded into the campaign creation process.',
@@ -362,7 +362,7 @@ const blogPosts: BlogPost[] = [
     id: 'ofw-billion-peso-bayanihan',
     title: 'The Billion-Peso Bayanihan: How OFWs Power the Philippine Economy and Why Their Generosity Deserves Better',
     category: 'OFW & Diaspora',
-    date: 'April 15, 2025',
+    date: 'February 10, 2027',
     readTime: '10 min read',
     excerpt:
       'Over 10 million Overseas Filipino Workers send home more than $33 billion annually — nearly 10% of the Philippines\' GDP. They are not just economic contributors. They are the living embodiment of bayanihan, extending help to family, friends, and fellow Filipinos in need. Yet when they give, they are asked to trust systems that offer zero visibility. That ends now.',
@@ -403,7 +403,7 @@ const blogPosts: BlogPost[] = [
     id: 'ghost-projects-vs-bayanihan',
     title: 'Ghost Projects and Real Bayanihan: Why OFWs Must Lead the Fight Against Corruption Through Radical Transparency',
     category: 'OFW & Diaspora',
-    date: 'April 12, 2025',
+    date: 'February 28, 2027',
     readTime: '9 min read',
     excerpt:
       'While Philippine government audit reports expose billions in ghost projects and missing funds, OFWs send home $33 billion annually with no transparency at all. True Bayanihan demands accountability. This is how trackable giving bypasses bureaucratic corruption and ensures every peso reaches the people who need it.',
@@ -490,10 +490,14 @@ export function BlogPage() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [expandedPost, setExpandedPost] = useState<string | null>(null)
 
+  const parseDate = (dateStr: string) => new Date(dateStr).getTime()
+
+  const sortedPosts = [...blogPosts].sort((a, b) => parseDate(b.date) - parseDate(a.date))
+
   const filteredPosts =
     activeCategory === 'All'
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === activeCategory)
+      ? sortedPosts
+      : sortedPosts.filter((post) => post.category === activeCategory)
 
   const togglePost = (id: string) => {
     setExpandedPost(expandedPost === id ? null : id)

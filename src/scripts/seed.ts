@@ -25,6 +25,7 @@ async function seed() {
       slug: 'why-verification-layered',
       title: 'Why Verification Must Be Layered, Not Binary',
       category: 'Verification',
+      publishedAt: new Date('2026-10-15'),
       excerpt: 'A single "verified" badge tells donors nothing about what was actually checked. At Fundraise.ph, verification is progressive — from basic identity review to compliance-sensitive review — because trust is earned in layers, not granted in one step.',
       content: JSON.stringify([
         'When a donor sees a "verified" badge on a campaign, what does that actually mean? On most platforms, it means very little. Maybe the organizer submitted an email address. Maybe they linked a social media account. Maybe someone at the platform clicked approve. But the donor has no idea what was checked, how thoroughly, or by whom.',
@@ -48,6 +49,7 @@ async function seed() {
       slug: 'filipino-fundraising-trust-layer',
       title: 'The Case for a Filipino Fundraising Trust Layer',
       category: 'Trust & Transparency',
+      publishedAt: new Date('2026-07-01'),
       excerpt: "Without standardized verification, transparent fund tracking, and compliance guidance, Filipino fundraising remains vulnerable. Here's why a dedicated trust organization is essential — and why it must be independent from any single platform.",
       content: JSON.stringify([
         'The Philippines is one of the most generous nations on earth. The World Giving Index consistently ranks Filipinos among the most likely to help strangers, donate money, and volunteer time. This generosity is rooted in bayanihan — the Filipino spirit of communal unity and mutual aid.',
@@ -69,6 +71,7 @@ async function seed() {
       slug: 'sergs-chocolates-marketplace-model',
       title: "How Serg's Chocolates Gave Birth to Fundraising.ph",
       category: 'Product Partnerships',
+      publishedAt: new Date('2026-07-15'),
       excerpt: "Serg's Chocolates didn't just inspire Fundraising.ph — it conceptualized it. When a heritage chocolate brand's revival plan needed a platform that didn't exist, the gap became an opportunity to build something for every Filipino.",
       content: JSON.stringify([
         'Serg\'s Chocolates is part of Filipino pasalubong culture — a heritage brand that evokes childhood, homecoming, and the simple joy of giving. When the team behind Serg\'s began planning its revival, they made a deliberate decision: this comeback would not just be about selling chocolate. It would be about giving back to the community.',
@@ -89,6 +92,7 @@ async function seed() {
       slug: 'ethical-storytelling',
       title: 'Ethical Storytelling: Protecting Beneficiary Dignity in Campaigns',
       category: 'Ethical Storytelling',
+      publishedAt: new Date('2026-08-01'),
       excerpt: 'The stories behind campaigns are powerful — but they must be told with consent, care, and respect. At Fundraise.ph, we require every campaign to follow ethical storytelling guidelines that protect the dignity of every beneficiary.',
       content: JSON.stringify([
         'Behind every fundraising campaign is a person — someone experiencing hardship, seeking help, trusting that their story will be treated with care. How that story is told matters.',
@@ -111,6 +115,7 @@ async function seed() {
       slug: 'what-is-fundraise-ph',
       title: 'What Is Fundraise.ph? The Trust Layer for Filipino Fundraising',
       category: 'Trust & Transparency',
+      publishedAt: new Date('2026-06-01'),
       excerpt: 'Fundraise.ph is not a fundraising platform. It is the nonprofit trust organization that builds the verification, transparency, and compliance infrastructure behind Fundraising.ph.',
       content: JSON.stringify([
         'There is a common misunderstanding that Fundraise.ph and Fundraising.ph are the same thing. They are not — and the distinction is critical.',
@@ -130,6 +135,7 @@ async function seed() {
       slug: 'verification-badges-explained',
       title: 'Verification Badges Explained: What Each Badge Means for Donors',
       category: 'Verification',
+      publishedAt: new Date('2026-11-10'),
       excerpt: 'Not all verified badges are created equal. At Fundraise.ph, each badge represents a specific level of verification — so donors know exactly what has been checked before they give.',
       content: JSON.stringify([
         'When you see a verification badge on Fundraising.ph, you should know exactly what it means.',
@@ -150,6 +156,7 @@ async function seed() {
       slug: 'compliance-library-guide',
       title: 'Compliance Library: A Free Resource for Responsible Fundraising',
       category: 'Compliance',
+      publishedAt: new Date('2026-11-25'),
       excerpt: "Most Filipino campaign organizers don't know their legal obligations. Fundraise.ph's Compliance Library provides free, accessible guidance on the regulations that affect every fundraiser in the Philippines.",
       content: JSON.stringify([
         'One of the biggest barriers to responsible fundraising in the Philippines is not bad intentions — it\'s lack of information.',
@@ -167,6 +174,7 @@ async function seed() {
       slug: 'filipino-diaspora-giving',
       title: 'Diaspora Giving: Connecting Overseas Filipinos to Trusted Campaigns at Home',
       category: 'Diaspora Giving',
+      publishedAt: new Date('2027-01-15'),
       excerpt: "Over 10 million Filipinos live abroad, and they send billions home each year. But when it comes to digital fundraising, diaspora Filipinos face a unique trust gap — they want to help, but they can't verify from afar.",
       content: JSON.stringify([
         'The Filipino diaspora is one of the largest in the world — over 10 million Filipinos live and work across the globe.',
@@ -185,6 +193,7 @@ async function seed() {
       slug: 'governance-principles',
       title: 'Six Governance Principles That Protect Filipino Fundraising',
       category: 'Governance',
+      publishedAt: new Date('2026-06-15'),
       excerpt: 'Governance at Fundraise.ph is not a checkbox — it is a living practice. Our six non-negotiable principles ensure that the organization remains accountable, transparent, and always aligned with its mission.',
       content: JSON.stringify([
         'Trust is the product Fundraise.ph offers. Governance is how we protect it.',
@@ -201,6 +210,7 @@ async function seed() {
       slug: 'fundraising-standards',
       title: 'Campaign Standards: The Minimum Requirements for Every Filipino Campaign',
       category: 'Fundraising Standards',
+      publishedAt: new Date('2026-08-20'),
       excerpt: 'Every campaign on Fundraising.ph must meet minimum standards before going live. These standards protect donors, beneficiaries, and the integrity of Filipino digital fundraising.',
       content: JSON.stringify([
         'A fundraising campaign is more than a webpage with a donation button. It is a commitment.',
@@ -217,6 +227,7 @@ async function seed() {
       slug: 'technology-bayanihan',
       title: 'Technology for Bayanihan: Building Digital Infrastructure for Filipino Giving',
       category: 'Technology',
+      publishedAt: new Date('2026-09-10'),
       excerpt: 'Bayanihan has sustained Filipino communities for centuries. Our mission is to build the digital infrastructure that allows it to thrive in the age of online fundraising — without losing the trust that makes it meaningful.',
       content: JSON.stringify([
         'Bayanihan has existed for centuries. Technology didn\'t create bayanihan. But technology can either support it or undermine it.',
@@ -233,6 +244,7 @@ async function seed() {
       slug: 'community-impact',
       title: 'Measuring What Matters: Beyond Money Raised to Trust Created',
       category: 'Community Impact',
+      publishedAt: new Date('2027-03-15'),
       excerpt: 'The success of Filipino fundraising should not be measured only by pesos raised. It should be measured by trust created, beneficiaries served, donors acknowledged, and communities strengthened.',
       content: JSON.stringify([
         'Most fundraising platforms measure success by one metric: total funds raised. But this metric tells only part of the story.',
@@ -249,6 +261,7 @@ async function seed() {
       slug: 'dswd-permit-guide',
       title: 'Do You Need a DSWD Permit to Fundraise in the Philippines?',
       category: 'Compliance',
+      publishedAt: new Date('2026-12-12'),
       excerpt: 'One of the most common questions from Filipino campaign organizers: do I need a DSWD permit? The answer depends on several factors. Here is a practical guide.',
       content: JSON.stringify([
         'The DSWD requires a permit for certain types of public solicitation. But not all fundraising activities require one.',
