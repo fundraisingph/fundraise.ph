@@ -492,7 +492,7 @@ export function BlogPage() {
 
   const parseDate = (dateStr: string) => new Date(dateStr).getTime()
 
-  const sortedPosts = [...blogPosts].sort((a, b) => parseDate(b.date) - parseDate(a.date))
+  const sortedPosts = [...blogPosts].sort((a, b) => parseDate(a.date) - parseDate(b.date))
 
   const filteredPosts =
     activeCategory === 'All'
