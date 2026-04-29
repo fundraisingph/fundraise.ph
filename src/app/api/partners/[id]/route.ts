@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { partnerReviewSchema } from '@/lib/validations/partner-application'
+import { provisionPartnerOnFundraising, sendPartnerApprovalNotifications } from '@/lib/cross-platform'
 
-// GET /api/partners/[id] - Get a single partner application
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -23,7 +24,6 @@ export async function GET(
   }
 }
 
-// PATCH /api/partners/[id] - Update a partner application (review/approve/reject)
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -31,17 +31,32 @@ export async function PATCH(
   try {
     const { id } = await params
     const body = await request.json()
-    const { status, reviewNotes, reviewedBy } = body
 
-    const validStatuses = ['pending', 'under_review', 'approved', 'rejected']
-    if (status && !validStatuses.includes(status)) {
-      return NextResponse.json({ error: 'Invalid status' }, { status: 400 })
+    const parsed = partnerReviewSchema.safeParse(body)
+    if (!parsed.success) {
+      const fieldErrors = parsed.error.issues.map((issue) => ({
+        field: issue.path.join('.'),
+        message: issue.message,
+      }))
+      return NextResponse.json(
+        { error: 'Validation failed', fields: fieldErrors },
+        { status: 400 }
+      )
+    }
+
+    const { status, reviewNotes, reviewedBy } = parsed.data
+
+    if (!status && reviewNotes === undefined && reviewedBy === undefined) {
+      return NextResponse.json(
+        { error: 'At least one field must be provided' },
+        { status: 400 }
+      )
     }
 
     const updateData: Record<string, unknown> = {}
     if (status) updateData.status = status
     if (reviewNotes !== undefined) updateData.reviewNotes = reviewNotes
-    if (reviewedBy) updateData.reviewedBy = reviewedBy
+    if (reviewedBy !== undefined) updateData.reviewedBy = reviewedBy
     if (status === 'approved' || status === 'rejected') {
       updateData.reviewedAt = new Date()
     }
@@ -51,6 +66,50 @@ export async function PATCH(
       data: updateData,
     })
 
+    if (status === 'approved') {
+      const provisioningResult = await provisionPartnerOnFundraising({
+        organizationName: application.organizationName,
+        contactPerson: application.contactPerson,
+        email: application.email,
+        phone: application.phone,
+        partnerType: application.partnerType,
+        website: application.website,
+        description: application.description,
+        mission: application.mission,
+      })
+
+      await sendPartnerApprovalNotifications(
+        {
+          organizationName: application.organizationName,
+          contactPerson: application.contactPerson,
+          email: application.email,
+          phone: application.phone,
+          partnerType: application.partnerType,
+          website: application.website,
+          description: application.description,
+          mission: application.mission,
+        },
+        provisioningResult,
+        reviewedBy || 'Admin',
+      ).catch((err) => {
+        console.error('Failed to send approval notifications:', err)
+      })
+
+      return NextResponse.json({
+        application,
+        provisioning: {
+          provisioned: provisioningResult.success,
+          userId: provisioningResult.userId,
+          partnerId: provisioningResult.partnerId,
+          tempPassword: provisioningResult.tempPassword,
+          correlationId: provisioningResult.correlationId,
+          mappedType: provisioningResult.mappedType,
+          typeWarning: provisioningResult.typeWarning,
+          error: provisioningResult.error,
+        },
+      })
+    }
+
     return NextResponse.json({ application })
   } catch (error) {
     console.error('Error updating partner application:', error)
@@ -58,7 +117,6 @@ export async function PATCH(
   }
 }
 
-// DELETE /api/partners/[id] - Delete a partner application
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }

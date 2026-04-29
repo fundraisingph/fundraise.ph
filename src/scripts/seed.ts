@@ -1,22 +1,29 @@
 import { db } from '@/lib/db'
+import bcrypt from 'bcryptjs'
 
 async function seed() {
   console.log('🌱 Seeding database...')
 
-  // Create admin user
   const existingAdmin = await db.adminUser.findUnique({ where: { email: 'admin@fundraise.ph' } })
   if (!existingAdmin) {
+    const hashedPassword = await bcrypt.hash('Genius123', 12)
     await db.adminUser.create({
       data: {
         email: 'admin@fundraise.ph',
         name: 'Admin',
-        password: 'admin123',
+        password: hashedPassword,
         role: 'admin',
+        status: 'active',
       },
     })
-    console.log('✅ Admin user created (admin@fundraise.ph / admin123)')
+    console.log('✅ Admin user created (admin@fundraise.ph / Genius123)')
   } else {
-    console.log('⏭️  Admin user already exists')
+    const hashedPassword = await bcrypt.hash('Genius123', 12)
+    await db.adminUser.update({
+      where: { email: 'admin@fundraise.ph' },
+      data: { password: hashedPassword, status: 'active' },
+    })
+    console.log('✅ Admin user password updated (admin@fundraise.ph / Genius123)')
   }
 
   // Seed blog posts

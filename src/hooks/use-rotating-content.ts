@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export function useRotatingContent<T>(items: T[], intervalMs = 8000): { current: T; index: number } {
+export function useRotatingContent<T>(items: T[], intervalMs = 13000): { current: T; index: number } {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {

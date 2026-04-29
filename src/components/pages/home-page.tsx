@@ -34,14 +34,15 @@ import {
 
 /* ── Roadmap data ── */
 const roadmapItems = [
-  { label: 'Verified Campaign Badge System', progress: 100 },
-  { label: 'Donor Acknowledgment Engine', progress: 85 },
-  { label: 'Compliance Guidance Library', progress: 75 },
-  { label: 'Public Impact Dashboard', progress: 60 },
-  { label: 'Marketplace Fundraising Module', progress: 50 },
-  { label: 'AI-Powered Campaign Review', progress: 40 },
-  { label: 'Diaspora Giving Gateway', progress: 30 },
-  { label: 'Open Data & Research API', progress: 20 },
+  { label: 'Establish the Nonprofit Trust Foundation', progress: 100 },
+  { label: 'Build the Trust, Verification & Compliance Layer', progress: 85 },
+  { label: 'Launch Fundraising.ph Platform MVP', progress: 60 },
+  { label: 'Prove the Model with Serg\'s Chocolates', progress: 50 },
+  { label: 'Activate Marketplace Fundraising', progress: 40 },
+  { label: 'Build the Public Impact & Transparency Dashboard', progress: 35 },
+  { label: 'Engage the Global Filipino Diaspora', progress: 30 },
+  { label: 'Build Institutional Partnerships', progress: 20 },
+  { label: 'Create Open Data, Research & Policy', progress: 15 },
 ]
 
 function getProgressIcon(progress: number) {

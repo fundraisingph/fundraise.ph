@@ -6,7 +6,8 @@ import {
   ChevronRight, Eye, CheckCircle2, XCircle, Clock, AlertCircle,
   Loader2, Plus, Trash2, Edit3, ExternalLink, Shield, Search,
   Building2, Mail, Phone, Globe, MessageSquare, Calendar,
-  FileEdit, Star, ToggleLeft, ToggleRight, Save, RefreshCw
+  FileEdit, Star, ToggleLeft, ToggleRight, Save, RefreshCw,
+  UserCog, UserPlus, Lock
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -80,7 +81,7 @@ interface BlogPost {
   publishedAt: string | null
 }
 
-type AdminView = 'dashboard' | 'partners' | 'blog' | 'settings'
+type AdminView = 'dashboard' | 'partners' | 'blog' | 'settings' | 'users'
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -1498,6 +1499,277 @@ function SiteSettingsManagement() {
   )
 }
 
+const ROLE_LABELS: Record<string, string> = {
+  admin: 'Administrator',
+  editor: 'Editor',
+  viewer: 'Viewer',
+}
+
+const ROLE_COLORS: Record<string, string> = {
+  admin: 'bg-purple-100 text-purple-800 border-purple-200',
+  editor: 'bg-blue-100 text-blue-800 border-blue-200',
+  viewer: 'bg-gray-100 text-gray-800 border-gray-200',
+}
+
+function canAccess(role: string, resource: string, action: string): boolean {
+  const perms: Record<string, Record<string, string[]>> = {
+    admin: { users: ['create', 'read', 'update', 'delete'], blog: ['create', 'read', 'update', 'delete', 'publish'], partner: ['create', 'read', 'update', 'delete'], settings: ['read', 'update'] },
+    editor: { users: [], blog: ['create', 'read', 'update', 'publish'], partner: ['read'], settings: ['read'] },
+    viewer: { users: [], blog: ['read'], partner: ['read'], settings: ['read'] },
+  }
+  return perms[role]?.[resource]?.includes(action) ?? false
+}
+
+// ─── User Management ──────────────────────────────────────────────────────────
+
+function UserManagement({ admin }: { admin: AdminUser }) {
+  const [users, setUsers] = useState<Array<AdminUser & { status?: string; lastLoginAt?: string | null; createdAt?: string }>>([])
+  const [loading, setLoading] = useState(true)
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [editUser, setEditUser] = useState<typeof users[0] | null>(null)
+  const [form, setForm] = useState({ name: '', email: '', password: '', role: 'viewer' })
+  const [saving, setSaving] = useState(false)
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
+
+  const fetchUsers = useCallback(async () => {
+    try {
+      const res = await fetch('/api/admin/users')
+      if (res.ok) {
+        const data = await res.json()
+        setUsers(data.users || [])
+      }
+    } catch (err) {
+      console.error('Failed to fetch users:', err)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => { fetchUsers() }, [fetchUsers])
+
+  const handleCreate = async () => {
+    setSaving(true)
+    try {
+      const res = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setDialogOpen(false)
+        setForm({ name: '', email: '', password: '', role: 'viewer' })
+        fetchUsers()
+      } else {
+        const data = await res.json()
+        alert(data.error || 'Failed to create user')
+      }
+    } catch {
+      alert('Network error')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleUpdateRole = async (userId: string, role: string) => {
+    try {
+      const res = await fetch(`/api/admin/users/${userId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ role }),
+      })
+      if (res.ok) fetchUsers()
+    } catch {
+      alert('Failed to update role')
+    }
+  }
+
+  const handleToggleStatus = async (userId: string, currentStatus: string) => {
+    const newStatus = currentStatus === 'active' ? 'suspended' : 'active'
+    try {
+      const res = await fetch(`/api/admin/users/${userId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus }),
+      })
+      if (res.ok) fetchUsers()
+      else {
+        const data = await res.json()
+        alert(data.error || 'Failed to update status')
+      }
+    } catch {
+      alert('Network error')
+    }
+  }
+
+  const handleDelete = async (userId: string) => {
+    try {
+      const res = await fetch(`/api/admin/users/${userId}`, { method: 'DELETE' })
+      if (res.ok) fetchUsers()
+      else {
+        const data = await res.json()
+        alert(data.error || 'Failed to delete user')
+      }
+    } catch {
+      alert('Network error')
+    }
+    setDeleteConfirm(null)
+  }
+
+  const handleResetPassword = async (userId: string) => {
+    const newPassword = prompt('Enter new password (min 8 characters):')
+    if (!newPassword || newPassword.length < 8) {
+      if (newPassword !== null) alert('Password must be at least 8 characters')
+      return
+    }
+    try {
+      const res = await fetch(`/api/admin/users/${userId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: newPassword }),
+      })
+      if (res.ok) alert('Password updated successfully')
+      else alert('Failed to reset password')
+    } catch {
+      alert('Network error')
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <Loader2 className="w-8 h-8 animate-spin text-navy" />
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-xl font-bold text-navy">User Management</h2>
+          <p className="text-sm text-[#4A5568]">Manage admin users and role-based access control</p>
+        </div>
+        {canAccess(admin.role, 'users', 'create') && (
+          <Button onClick={() => { setEditUser(null); setForm({ name: '', email: '', password: '', role: 'viewer' }); setDialogOpen(true) }} className="bg-navy hover:bg-navy/90">
+            <UserPlus className="w-4 h-4 mr-2" /> Add User
+          </Button>
+        )}
+      </div>
+
+      <Card>
+        <CardContent className="p-0">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Email</TableHead>
+                <TableHead>Role</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Last Login</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {users.map((user) => (
+                <TableRow key={user.id}>
+                  <TableCell className="font-medium">{user.name}</TableCell>
+                  <TableCell>{user.email}</TableCell>
+                  <TableCell>
+                    <Badge className={`text-xs ${ROLE_COLORS[user.role] || 'bg-gray-100'}`}>
+                      {ROLE_LABELS[user.role] || user.role}
+                    </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline" className={`text-xs ${user.status === 'active' ? 'text-green-700 border-green-200' : 'text-red-700 border-red-200'}`}>
+                      {user.status || 'active'}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="text-sm text-[#4A5568]">
+                    {user.lastLoginAt ? formatDate(user.lastLoginAt) : 'Never'}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {user.id !== admin.id && canAccess(admin.role, 'users', 'update') && (
+                      <div className="flex items-center justify-end gap-1">
+                        <Button variant="ghost" size="sm" onClick={() => handleUpdateRole(user.id, user.role === 'admin' ? 'editor' : user.role === 'editor' ? 'viewer' : 'admin')} title="Change role">
+                          <UserCog className="w-4 h-4" />
+                        </Button>
+                        <Button variant="ghost" size="sm" onClick={() => handleToggleStatus(user.id, user.status || 'active')} title={user.status === 'active' ? 'Suspend' : 'Activate'}>
+                          {user.status === 'active' ? <XCircle className="w-4 h-4 text-red-500" /> : <CheckCircle2 className="w-4 h-4 text-green-500" />}
+                        </Button>
+                        <Button variant="ghost" size="sm" onClick={() => handleResetPassword(user.id)} title="Reset password">
+                          <Lock className="w-4 h-4" />
+                        </Button>
+                        {canAccess(admin.role, 'users', 'delete') && (
+                          <Button variant="ghost" size="sm" onClick={() => setDeleteConfirm(user.id)} title="Delete user">
+                            <Trash2 className="w-4 h-4 text-red-500" />
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Add New User</DialogTitle>
+            <DialogDescription>Create a new admin user with role-based access</DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-2">
+            <div className="space-y-2">
+              <Label>Full Name</Label>
+              <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Juan Dela Cruz" />
+            </div>
+            <div className="space-y-2">
+              <Label>Email</Label>
+              <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="user@fundraise.ph" />
+            </div>
+            <div className="space-y-2">
+              <Label>Password</Label>
+              <Input type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Min 8 characters" />
+            </div>
+            <div className="space-y-2">
+              <Label>Role</Label>
+              <Select value={form.role} onValueChange={(v) => setForm({ ...form, role: v })}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="admin">Administrator — Full access</SelectItem>
+                  <SelectItem value="editor">Editor — Content management</SelectItem>
+                  <SelectItem value="viewer">Viewer — Read only</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
+            <Button onClick={handleCreate} disabled={saving || !form.name || !form.email || !form.password} className="bg-navy hover:bg-navy/90">
+              {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Create User'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <AlertDialog open={!!deleteConfirm} onOpenChange={() => setDeleteConfirm(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete User</AlertDialogTitle>
+            <AlertDialogDescription>This action cannot be undone. This will permanently delete this admin user.</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={() => deleteConfirm && handleDelete(deleteConfirm)} className="bg-red-600 hover:bg-red-700">Delete</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div>
+  )
+}
+
 // ─── Main Admin Dashboard ────────────────────────────────────────────────────
 
 export function AdminDashboardPage() {
@@ -1507,8 +1779,25 @@ export function AdminDashboardPage() {
   const [partners, setPartners] = useState<PartnerApp[]>([])
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [dataLoading, setDataLoading] = useState(true)
+  const [sessionChecked, setSessionChecked] = useState(false)
 
-  // Fetch dashboard data on login
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const res = await fetch('/api/admin/session')
+        if (res.ok) {
+          const data = await res.json()
+          setAdmin(data.admin)
+        }
+      } catch {
+        // no session
+      } finally {
+        setSessionChecked(true)
+      }
+    }
+    checkSession()
+  }, [])
+
   useEffect(() => {
     if (!admin) return
     const fetchData = async () => {
@@ -1535,19 +1824,34 @@ export function AdminDashboardPage() {
     setAdmin(adminUser)
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/admin/session', { method: 'DELETE' })
+    } catch {}
     setAdmin(null)
     setCurrentView('dashboard')
   }
 
-  const sidebarItems: { id: AdminView; label: string; icon: React.ReactNode }[] = [
+  const allSidebarItems: { id: AdminView; label: string; icon: React.ReactNode; requiresPermission?: [string, string] }[] = [
     { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-5 h-5" /> },
-    { id: 'partners', label: 'Partners', icon: <Users className="w-5 h-5" /> },
-    { id: 'blog', label: 'Blog Posts', icon: <FileText className="w-5 h-5" /> },
-    { id: 'settings', label: 'Settings', icon: <Settings className="w-5 h-5" /> },
+    { id: 'partners', label: 'Partners', icon: <Users className="w-5 h-5" />, requiresPermission: ['partner', 'read'] },
+    { id: 'blog', label: 'Blog Posts', icon: <FileText className="w-5 h-5" />, requiresPermission: ['blog', 'read'] },
+    { id: 'users', label: 'Users', icon: <UserCog className="w-5 h-5" />, requiresPermission: ['users', 'read'] },
+    { id: 'settings', label: 'Settings', icon: <Settings className="w-5 h-5" />, requiresPermission: ['settings', 'read'] },
   ]
 
-  // ─── Not authenticated: Show login ───────────────────────────────────────
+  const sidebarItems = allSidebarItems.filter(
+    (item) => !item.requiresPermission || canAccess(admin?.role || 'viewer', item.requiresPermission[0], item.requiresPermission[1])
+  )
+
+  if (!sessionChecked) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-light-gray">
+        <Loader2 className="w-8 h-8 animate-spin text-navy" />
+      </div>
+    )
+  }
+
   if (!admin) {
     return <LoginScreen onLogin={handleLogin} />
   }
@@ -1687,6 +1991,9 @@ export function AdminDashboardPage() {
           )}
           {currentView === 'settings' && (
             <SiteSettingsManagement />
+          )}
+          {currentView === 'users' && (
+            <UserManagement admin={admin} />
           )}
         </main>
       </div>

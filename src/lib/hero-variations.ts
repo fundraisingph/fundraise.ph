@@ -155,16 +155,16 @@ export const heroVariations: Record<string, HeroVariation[]> = {
 
   'trust-transparency': [
     {
-      headline: 'Trust Is Not a {Slogan}. Trust Is a System.',
-      subheadline: 'Fundraise.ph is committed to building fundraising infrastructure based on transparency, documentation, governance, verification, reporting, and accountability.',
+      headline: 'Every act of help should be {visible}, acknowledged, and accountable.',
+      subheadline: 'Trust & Transparency explains what the public, donors, supporters, partners, and campaign viewers should be able to see, understand, verify, and rely on when engaging with Fundraise.ph and Fundraising.ph.',
       accentColor: accentColors.gold,
       gradientFrom: '#0A1F44',
       gradientTo: '#1A3A6B',
       patternColor: 'rgba(200, 169, 81, 0.08)',
     },
     {
-      headline: '{Verify}. Guide. Track. Report. Improve.',
-      subheadline: 'Our five-step trust framework ensures every campaign is reviewed, guided, tracked, reported, and continuously improved.',
+      headline: 'Trust Is Not a {Slogan}. Trust Is a System.',
+      subheadline: 'Fundraise.ph is committed to building fundraising infrastructure based on transparency, documentation, governance, verification, reporting, and accountability.',
       accentColor: accentColors.red,
       gradientFrom: '#0A1F44',
       gradientTo: '#1E2A4A',
@@ -206,8 +206,8 @@ export const heroVariations: Record<string, HeroVariation[]> = {
       patternColor: 'rgba(200, 169, 81, 0.08)',
     },
     {
-      headline: 'From {Verification} to AI-Assisted Trust',
-      subheadline: 'Eight phases of development — from nonprofit foundation to institutional partnerships — each strengthening the trust layer for Filipino giving.',
+      headline: 'From {Verification} to Institutional Trust',
+      subheadline: 'Nine phases of development — from nonprofit incorporation to open data and policy — each strengthening the trust layer for Filipino giving.',
       accentColor: accentColors.red,
       gradientFrom: '#0A1F44',
       gradientTo: '#1E2A4A',
@@ -222,8 +222,8 @@ export const heroVariations: Record<string, HeroVariation[]> = {
       patternColor: 'rgba(245, 166, 35, 0.08)',
     },
     {
-      headline: '{AI} Should Assist, Not Replace, Human Governance',
-      subheadline: 'Our roadmap includes AI-powered campaign guidance, compliance checklists, and fraud detection — always with human oversight and accountability.',
+      headline: 'Human {Governance} Over Automation',
+      subheadline: 'Our roadmap prioritizes human oversight, compliance checklists, and transparent reporting — always with accountability and community trust.',
       accentColor: accentColors.emerald,
       gradientFrom: '#0A1F44',
       gradientTo: '#0D2A50',
@@ -232,6 +232,166 @@ export const heroVariations: Record<string, HeroVariation[]> = {
     {
       headline: 'Every Phase Built on {Trust}',
       subheadline: 'From nonprofit incorporation to full trust infrastructure, each phase of our roadmap is designed with transparency and community at its core.',
+      accentColor: accentColors.blue,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#162E54',
+      patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+  ],
+
+  'technology-impact': [
+    {
+      headline: 'Technology for {bayanihan}. Impact built on trust.',
+      subheadline: 'Fundraise.ph builds the technology infrastructure for trusted Filipino giving. Fundraising.ph is where campaigns come to life.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: 'Building {Infrastructure} That Earns Trust',
+      subheadline: 'From verification engines to marketplace tools, every technology decision at Fundraise.ph is made with transparency and accountability.',
+      accentColor: accentColors.blue,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#162E54',
+      patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+    {
+      headline: '{Impact} Measured, Not Claimed',
+      subheadline: 'We measure what matters — verification rates, donor acknowledgment, campaign completion, and community trust — never inflating what we have not yet delivered.',
+      accentColor: accentColors.emerald,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#0D2A50',
+      patternColor: 'rgba(0, 107, 63, 0.07)',
+    },
+  ],
+
+  'platform-infrastructure': [
+    {
+      headline: 'The {Operational Stack} Behind Fundraising.ph',
+      subheadline: 'From campaign onboarding to audit trails, every component is designed for transparency, verification, and accountable fund management.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Infrastructure} That Serves the Mission',
+      subheadline: 'Technology at Fundraise.ph exists to support trust — not to replace human judgment, bypass compliance, or automate accountability.',
+      accentColor: accentColors.blue,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#162E54',
+      patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+  ],
+
+  'ai-automation': [
+    {
+      headline: 'AI {assists}. Humans decide.',
+      subheadline: 'Fundraise.ph uses AI to support review, guidance, reporting, and operational efficiency — never to replace human judgment, legal advice, or campaign-specific verification.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: 'AI Should {Support}, Not Replace, Human Governance',
+      subheadline: 'Every AI-assisted feature at Fundraise.ph operates under human oversight. No automated legal conclusions. No auto-approvals for high-risk campaigns.',
+      accentColor: accentColors.emerald,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#0D2A50',
+      patternColor: 'rgba(0, 107, 63, 0.07)',
+    },
+  ],
+
+  'marketplace-fundraising': [
+    {
+      headline: '{Marketplace} Fundraising: Products With Purpose',
+      subheadline: 'Filipino creators and communities can sell products, accept pre-orders, and run sponsor-supported campaigns — with full transparency about how proceeds benefit campaigns.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: 'From {Purchase} to Purpose',
+      subheadline: 'Marketplace fundraising lets supporters buy products that directly fund campaigns — with clear disclosure that transactions are purchases or sponsorships, not pure donations.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  'diaspora-giving-technology': [
+    {
+      headline: 'Connecting {Overseas Filipinos} to Trusted Campaigns',
+      subheadline: 'Technology that helps overseas Filipinos discover, support, and track verified campaigns in their hometowns and across the Philippines.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Bayanihan} Without Borders',
+      subheadline: 'Over 10 million overseas Filipinos deserve technology that makes giving back home transparent, verified, and compliance-aware.',
+      accentColor: accentColors.blue,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#162E54',
+      patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+  ],
+
+  'open-data-research': [
+    {
+      headline: 'Open {Data} That Protects Privacy',
+      subheadline: 'Fundraise.ph will publish aggregated, anonymized trust metrics — never private donor data, sensitive beneficiary information, or personally identifiable information.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Research} for the Future of Filipino Giving',
+      subheadline: 'Research briefs, trust metrics, and future API concepts — all built on privacy-protected, aggregated data.',
+      accentColor: accentColors.emerald,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#0D2A50',
+      patternColor: 'rgba(0, 107, 63, 0.07)',
+    },
+  ],
+
+  'technology-governance': [
+    {
+      headline: 'Technology {governance} protects the mission.',
+      subheadline: 'Privacy by design. Security by default. Human oversight over automation. These principles guide every technology decision at Fundraise.ph.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Trust} in Technology Requires Governance',
+      subheadline: 'Every system, API, and AI tool must pass through technology governance review — ensuring auditability, data minimization, and beneficiary dignity.',
+      accentColor: accentColors.blue,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#162E54',
+      patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+  ],
+
+  'tech-faq': [
+    {
+      headline: 'Common questions about {technology} and impact.',
+      subheadline: 'Answers about Fundraise.ph technology, AI, marketplace fundraising, impact measurement, and the Fundraising.ph platform.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: 'Understanding the {Tech} Behind the Trust Layer',
+      subheadline: 'What is Fundraise.ph? What is Fundraising.ph? How does AI work on the platform? Get clear, honest answers here.',
       accentColor: accentColors.blue,
       gradientFrom: '#0A1F44',
       gradientTo: '#162E54',
@@ -580,6 +740,195 @@ export const heroVariations: Record<string, HeroVariation[]> = {
       gradientFrom: '#0A1F44',
       gradientTo: '#162E54',
       patternColor: 'rgba(43, 76, 126, 0.08)',
+    },
+  ],
+
+  'trust-governance-compliance': [
+    {
+      headline: 'Trust is not a slogan. It is the {system} behind every campaign.',
+      subheadline: 'Fundraise.ph is building the nonprofit trust layer for Filipino giving. Our work is organized around three commitments: public transparency, strong governance, and compliance-aware fundraising.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Every} act of help should be counted, acknowledged, and protected.',
+      subheadline: 'Donors deserve visibility, campaigners need guidance, beneficiaries deserve dignity, and the organization itself must be accountable.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'Three {Pillars}: Trust, Governance, Compliance',
+      subheadline: 'Fundraise.ph organizes its trust infrastructure around transparency, governance, and compliance — because responsible fundraising requires all three.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  compliance: [
+    {
+      headline: 'Responsible fundraising needs {clear guidance}.',
+      subheadline: 'Fundraise.ph is not a regulator, law firm, payment institution, or government agency. But we believe fundraising platforms must be designed with compliance awareness from the beginning.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Compliance}-Aware, Not Compliance-Overwhelming',
+      subheadline: 'Our compliance approach helps campaigners understand what type of campaign they are running, what documents may be needed, and when external review may be required.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'Campaign {Classification} Protects Everyone',
+      subheadline: 'When campaigners know what type of fundraising they are doing, donors know what to expect, and beneficiaries receive better protection.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  'verification-framework': [
+    {
+      headline: 'Verification should be {layered}, documented, and campaign-specific.',
+      subheadline: 'Fundraise.ph defines multiple verification levels so that campaigns, donors, and partners can clearly understand what has been reviewed and what standards have been met.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Badges} That Mean Something',
+      subheadline: 'Verification badges reflect the review level completed based on available documents and platform standards — not blanket guarantees.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'From {Identity} to Compliance Review',
+      subheadline: 'Five verification levels — from basic identity review to compliance-sensitive review — ensure that every campaign gets the right level of scrutiny.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  'campaign-standards': [
+    {
+      headline: 'Raising funds responsibly starts with {clear standards}.',
+      subheadline: 'Fundraise.ph promotes standards for campaign identity, documentation, donor communication, beneficiary consent, and post-campaign reporting.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Disclosure} Is the Foundation of Trust',
+      subheadline: 'Campaigners must disclose who they are, what model they use, how funds will be spent, and what happens after the campaign closes.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'From {Launch} to Final Report',
+      subheadline: 'Campaign standards cover the full lifecycle — from identity verification and documentation to post-campaign reporting and proof of delivery.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  policies: [
+    {
+      headline: 'Clear {policies} protect the mission and the public.',
+      subheadline: 'Fundraise.ph maintains a growing public policy library covering governance, transparency, data protection, donor acknowledgment, campaign verification, and beneficiary dignity.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Transparency} by Default Means Published Policies',
+      subheadline: 'Every governance policy, operational standard, and public commitment should be accessible — not hidden behind internal documents.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'Policies That {Serve} the Filipino Community',
+      subheadline: 'Our policies are written to protect donors, campaigners, beneficiaries, and the public — not to create bureaucracy.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  'reports-disclosures': [
+    {
+      headline: 'Public accountability should be {visible} and accessible.',
+      subheadline: 'Fundraise.ph is committed to publishing annual reports, financial summaries, trustee updates, impact reports, and governance disclosures.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Reports} Build Trust. Silence Builds Doubt.',
+      subheadline: 'Regular public reporting ensures that donors, partners, and the community can verify that Fundraise.ph is meeting its commitments.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'From {Financial Summaries} to Impact Stories',
+      subheadline: 'Transparency means showing both the numbers and the human impact — financial summaries alongside real campaign outcomes.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
+    },
+  ],
+
+  faq: [
+    {
+      headline: 'Common {questions} about trust, governance, and compliance.',
+      subheadline: 'Plain-English answers to the most important questions about Fundraise.ph, Fundraising.ph, verification, compliance, and responsible fundraising.',
+      accentColor: accentColors.gold,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1A3A6B',
+      patternColor: 'rgba(200, 169, 81, 0.08)',
+    },
+    {
+      headline: '{Understanding} the Trust Layer for Filipino Giving',
+      subheadline: 'What is Fundraise.ph? What is Fundraising.ph? What does verification mean? Get clear, honest answers here.',
+      accentColor: accentColors.red,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#1E2A4A',
+      patternColor: 'rgba(200, 16, 46, 0.06)',
+    },
+    {
+      headline: 'From {Compliance} to Campaign Verification',
+      subheadline: 'Answers about our approach to responsible fundraising — without legal overclaims or regulatory guarantees.',
+      accentColor: accentColors.sunshine,
+      gradientFrom: '#0A1F44',
+      gradientTo: '#142952',
+      patternColor: 'rgba(245, 166, 35, 0.08)',
     },
   ],
 }

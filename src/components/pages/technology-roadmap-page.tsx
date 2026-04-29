@@ -2,163 +2,13 @@
 
 import { useRotatingContent } from '@/hooks/use-rotating-content'
 import { heroVariations } from '@/lib/hero-variations'
+import { PLATFORM_URL, roadmapPhases, getStatusColor } from '@/lib/technology-impact-config'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
-import { TimelineCard } from '@/components/shared/timeline-card'
-
-const phases = [
-  {
-    phase: 1,
-    title: 'Nonprofit Foundation',
-    description: 'Establishing the legal, governance, and operational foundation of Fundraise.ph as a Philippine nonprofit.',
-    progress: 80,
-    items: [
-      'Fundraise.ph website launch',
-      'Public mission statement',
-      'Trustee profiles',
-      'Governance page',
-      'Transparency commitments',
-      'Founding member stories',
-      'Initial blog and trustee notes',
-      'Partner inquiry system',
-      'Newsletter',
-      'Public FAQ',
-    ],
-  },
-  {
-    phase: 2,
-    title: 'Fundraising.ph Platform Launch',
-    description: 'Building and deploying the core fundraising platform where verified campaigns are published and supported.',
-    progress: 40,
-    items: [
-      'Campaign onboarding',
-      'Campaigner registration',
-      'Campaign category setup',
-      'Basic campaign verification',
-      'Document upload',
-      'Beneficiary data capture',
-      'Donor acknowledgment',
-      'Sponsor participation',
-      'Marketplace fundraising',
-      'Campaign updates',
-      'Admin review console',
-      'Reporting dashboard',
-    ],
-  },
-  {
-    phase: 3,
-    title: 'Verification and Compliance Engine',
-    description: 'Creating the systematic process for verifying campaigns and ensuring regulatory compliance.',
-    progress: 20,
-    items: [
-      'Campaign risk scoring',
-      'Campaign type classification',
-      'Donation vs marketplace distinction',
-      'Public solicitation guidance',
-      'Permit checklist workflows',
-      'Identity verification',
-      'Organization verification',
-      'Beneficiary validation',
-      'Document completeness scoring',
-      'Campaign badge system',
-      'Campaign audit trail',
-      'Escalation and suspension workflow',
-    ],
-  },
-  {
-    phase: 4,
-    title: 'Marketplace Fundraising',
-    description: 'Enabling product and service-based fundraising where Filipino creators and communities can sell to raise funds.',
-    progress: 10,
-    items: [
-      'Supplier onboarding',
-      'Product partner dashboard',
-      'Affiliate-style fundraising',
-      'Commission-based campaigns',
-      'Cause-linked product sales',
-      'Sponsor exposure tracking',
-      'Campaign-specific marketplace pages',
-      'Order and fulfillment integration',
-      'Revenue-share reporting',
-      'Supporter purchase acknowledgment',
-      'Product-based community campaigns',
-    ],
-  },
-  {
-    phase: 5,
-    title: 'Diaspora Giving Layer',
-    description: 'Building infrastructure for overseas Filipinos to support verified campaigns back home with ease and trust.',
-    progress: 5,
-    items: [
-      'Overseas Filipino supporter profiles',
-      'International donor education',
-      'Multi-currency planning',
-      'Campaign location maps',
-      'Supporter communication preferences',
-      'Cross-border payment compliance review',
-      'Diaspora chapter partnerships',
-      'Hometown campaign discovery',
-      'Transparent impact reporting',
-    ],
-  },
-  {
-    phase: 6,
-    title: 'AI-Assisted Campaign Guidance',
-    description: 'Leveraging AI to help campaign organizers create more effective, compliant, and trustworthy campaigns.',
-    progress: 5,
-    items: [
-      'AI campaign setup assistant',
-      'AI compliance checklist assistant',
-      'AI campaign category classifier',
-      'AI donor update writer',
-      'AI post-campaign report generator',
-      'AI document completeness reviewer',
-      'AI fraud-pattern detection support',
-      'AI beneficiary story assistant',
-      'AI trustee dashboard summaries',
-      'AI risk and anomaly alerts',
-    ],
-  },
-  {
-    phase: 7,
-    title: 'Public Impact Dashboard',
-    description: 'Creating transparent, real-time public dashboards showing the impact and flow of all funds.',
-    progress: 5,
-    items: [
-      'Total campaigns supported',
-      'Total verified campaigns',
-      'Total marketplace campaigns',
-      'Donor acknowledgments sent',
-      'Beneficiary reports published',
-      'Campaign completion rates',
-      'Partner participation',
-      'Sponsor impact',
-      'Public transparency scorecards',
-      'Annual reports',
-      'Trustee letters',
-    ],
-  },
-  {
-    phase: 8,
-    title: 'Institutional Partnerships',
-    description: 'Building partnerships with NGOs, government agencies, and corporate sponsors for amplified impact.',
-    progress: 5,
-    items: [
-      'LGU partnership program',
-      'NGO onboarding program',
-      'School fundraising program',
-      'Church and parish campaign standards',
-      'Disaster response templates',
-      'Corporate sponsor program',
-      'Supplier network',
-      'Diaspora partner chapters',
-      'Public agency collaboration',
-      'Permit workflow digitization exploration',
-    ],
-  },
-]
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 export function TechnologyRoadmapPage() {
   const { current: heroVar } = useRotatingContent(heroVariations['technology-roadmap'])
@@ -174,27 +24,58 @@ export function TechnologyRoadmapPage() {
 
       <Section>
         <SectionHeading
-          title="8 Phases. One Mission."
-          subtitle="Each phase builds on the last — from nonprofit foundation to institutional partnerships. Together, they form the complete infrastructure for trusted Filipino giving."
+          title="One Mission"
+          subtitle="Fundraise.ph is building the nonprofit trust and technology foundation for Filipino giving."
         />
 
+        <div className="max-w-3xl mx-auto text-center mb-12 space-y-4">
+          <p className="text-[#4A5568] leading-relaxed">
+            Our mission is to create the most trusted fundraising infrastructure for Filipinos worldwide — one that combines nonprofit governance, campaign verification, compliance awareness, donor acknowledgment, marketplace fundraising, diaspora participation, and public impact reporting.
+          </p>
+          <p className="text-[#4A5568] leading-relaxed">
+            <strong className="text-navy">Fundraise.ph</strong> is the nonprofit trust layer.{' '}
+            <strong className="text-navy">Fundraising.ph</strong> is the campaign and marketplace platform.{' '}
+            Together, they are designed to strengthen <em>digital bayanihan</em> with transparency, accountability, and technology.
+          </p>
+        </div>
+
         <div className="space-y-6">
-          {phases.map((phase) => (
-            <TimelineCard
-              key={phase.phase}
-              phase={phase.phase}
-              title={phase.title}
-              description={phase.description}
-              items={phase.items}
-              progress={phase.progress}
-            />
+          {roadmapPhases.map((phase) => (
+            <Card key={phase.phase} className="border-l-4 border-l-gold hover:shadow-md transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg">
+                    {phase.phase}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-1 flex-wrap">
+                      <h3 className="text-xl font-bold text-navy">{phase.title}</h3>
+                      <Badge className={`text-xs ${getStatusColor(phase.status)}`}>
+                        {phase.status}
+                      </Badge>
+                    </div>
+                    <p className="text-[#4A5568] text-sm leading-relaxed">{phase.description}</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 ml-16">
+                  {phase.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-[#4A5568]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </Section>
 
       <CTABlock
         headline="Join us in building the trust layer for Filipino giving."
-        subheadline="Every phase of our roadmap is designed with transparency and community at its core. Help us build, test, and improve Fundraising.ph."
+        subheadline="Every phase of our roadmap is designed with transparency and community at its core."
+        ctaLabel="Explore Campaigns on Fundraising.ph"
+        ctaHref={PLATFORM_URL}
       />
     </div>
   )

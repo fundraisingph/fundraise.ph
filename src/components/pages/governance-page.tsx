@@ -2,12 +2,12 @@
 
 import { useRotatingContent } from '@/hooks/use-rotating-content'
 import { heroVariations } from '@/lib/hero-variations'
+import { FUNDRAISING_PH_URL } from '@/lib/trust-governance-compliance-config'
 import { PageHeader } from '@/components/shared/page-header'
 import { Section } from '@/components/shared/section'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { CTABlock } from '@/components/shared/cta-block'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import {
   Lock,
   Eye,
@@ -16,6 +16,14 @@ import {
   UserCheck,
   HeartHandshake,
   FileText,
+  Users,
+  Cpu,
+  Shield,
+  Landmark,
+  Gavel,
+  FileCheck,
+  UserCog,
+  Briefcase,
 } from 'lucide-react'
 
 interface GovernancePrinciple {
@@ -29,8 +37,7 @@ const principles: GovernancePrinciple[] = [
   {
     title: 'Mission Lock',
     icon: <Lock className="h-7 w-7" />,
-    description:
-      'The mission of Fundraise.ph cannot be changed, diluted, or redirected for commercial or personal gain.',
+    description: 'The mission of Fundraise.ph cannot be changed, diluted, or redirected for commercial or personal gain.',
     details: [
       'The nonprofit mission is embedded in the Constitution and By-Laws',
       'Any amendment to the mission requires unanimous board approval and public consultation',
@@ -41,8 +48,7 @@ const principles: GovernancePrinciple[] = [
   {
     title: 'Transparency by Default',
     icon: <Eye className="h-7 w-7" />,
-    description:
-      'All financial records, policies, decisions, and impact data are publicly accessible unless privacy law requires otherwise.',
+    description: 'All financial records, policies, decisions, and impact data are publicly accessible unless privacy law requires otherwise.',
     details: [
       'Annual financial statements published within 90 days of fiscal year end',
       'All board meeting summaries made publicly available',
@@ -53,11 +59,10 @@ const principles: GovernancePrinciple[] = [
   {
     title: 'Compliance-Aware Operations',
     icon: <Scale className="h-7 w-7" />,
-    description:
-      'Every operational decision and feature is evaluated against Philippine regulatory requirements before implementation.',
+    description: 'Every operational decision and feature is evaluated against Philippine regulatory requirements before implementation.',
     details: [
       'Compliance check integrated into every product development sprint',
-      'Regular audits aligned with SEC, BIR, and DSWD requirements',
+      'Regular audits aligned with SEC, BIR, and DSWD requirements where applicable',
       'Compliance officers review all new partnerships and integrations',
       'Automated compliance flags for campaigns approaching regulatory thresholds',
     ],
@@ -65,8 +70,7 @@ const principles: GovernancePrinciple[] = [
   {
     title: 'Conflict-of-Interest Management',
     icon: <UsersRound className="h-7 w-7" />,
-    description:
-      'All trustees, officers, and staff must disclose conflicts of interest and recuse themselves from related decisions.',
+    description: 'All trustees, officers, and staff must disclose conflicts of interest and recuse themselves from related decisions.',
     details: [
       'Mandatory annual conflict-of-interest disclosure for all trustees and officers',
       'Recusal policy enforced for board votes involving personal interests',
@@ -77,8 +81,7 @@ const principles: GovernancePrinciple[] = [
   {
     title: 'Human Oversight Over Automation',
     icon: <UserCheck className="h-7 w-7" />,
-    description:
-      'AI and automated systems support but never replace human judgment in verification, compliance, and beneficiary protection.',
+    description: 'AI and automated systems support but never replace human judgment in verification, compliance, and beneficiary protection.',
     details: [
       'All campaign verification decisions require human review and approval',
       'AI recommendations are advisory only; final decisions rest with designated officers',
@@ -89,8 +92,7 @@ const principles: GovernancePrinciple[] = [
   {
     title: 'Beneficiary Dignity',
     icon: <HeartHandshake className="h-7 w-7" />,
-    description:
-      'All interactions, content, and data concerning beneficiaries must preserve their dignity, privacy, and agency.',
+    description: 'All interactions, content, and data concerning beneficiaries must preserve their dignity, privacy, and agency.',
     details: [
       'Beneficiaries must consent to how their stories and images are used',
       'Campaigns cannot exploit or sensationalize beneficiary hardship',
@@ -100,23 +102,24 @@ const principles: GovernancePrinciple[] = [
   },
 ]
 
-const policiesToPublish = [
-  'Constitution and By-Laws',
-  'Code of Ethics and Conduct',
-  'Conflict of Interest Policy',
-  'Whistleblower Protection Policy',
-  'Financial Controls and Audit Policy',
-  'Data Privacy and Protection Policy',
-  'Campaign Verification Framework',
-  'Beneficiary Protection Policy',
-  'Anti-Money Laundering Policy',
-  'Donor Rights and Privacy Policy',
-  'AI and Automation Governance Policy',
-  'Partnership and Sponsorship Policy',
-  'Fund Disbursement and Tracking Policy',
-  'Grievance and Dispute Resolution Policy',
-  'Board Governance and Election Policy',
-  'Public Transparency and Reporting Policy',
+const committees = [
+  { name: 'Governance and Ethics Committee', icon: <Gavel className="h-5 w-5" />, description: 'Oversees ethical standards, trustee conduct, and governance policy compliance.' },
+  { name: 'Finance and Audit Committee', icon: <Landmark className="h-5 w-5" />, description: 'Manages financial oversight, budgeting, audit coordination, and fiscal transparency.' },
+  { name: 'Technology and Data Committee', icon: <Cpu className="h-5 w-5" />, description: 'Guides technology decisions, AI governance, data protection, and platform architecture.' },
+  { name: 'Compliance and Risk Committee', icon: <Shield className="h-5 w-5" />, description: 'Monitors compliance awareness, risk management, regulatory review, and policy updates.' },
+  { name: 'Community and Partnerships Committee', icon: <Users className="h-5 w-5" />, description: 'Manages partner relationships, community engagement, and stakeholder communication.' },
+  { name: 'Beneficiary Protection Committee', icon: <HeartHandshake className="h-5 w-5" />, description: 'Ensures beneficiary dignity, consent protocols, and protection standards are maintained.' },
+]
+
+const accountabilityItems = [
+  'Annual financial statements published within 90 days of fiscal year end',
+  'Board meeting summaries made publicly available',
+  'Campaign fund flows tracked and displayed publicly',
+  'Policies and governance documents accessible on the Compliance Library',
+  'Regular community feedback collection and response',
+  'Trustee code of conduct publicly available',
+  'Whistleblower protection for reporting concerns',
+  'External audit coordination where applicable',
 ]
 
 export function GovernancePage() {
@@ -131,14 +134,12 @@ export function GovernancePage() {
         variation={heroVar}
       />
 
-      {/* Governance Principles */}
       <Section>
         <SectionHeading
           title="Six Governance Principles"
           subtitle="These principles form the backbone of how Fundraise.ph operates. They are non-negotiable commitments embedded in our organizational DNA."
           centered
         />
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {principles.map((principle, index) => (
             <Card
@@ -172,37 +173,54 @@ export function GovernancePage() {
         </div>
       </Section>
 
-      {/* Policies to Publish */}
       <Section dark>
-        <div className="text-center mb-10">
-          <div className="w-14 h-14 rounded-xl bg-[#0A1F44]/10 text-[#0A1F44] flex items-center justify-center mx-auto mb-4">
-            <FileText className="h-7 w-7" />
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0A1F44] mb-3">
-            Policies to Publish
-          </h2>
-          <p className="text-[#4A5568] max-w-2xl mx-auto leading-relaxed">
-            As part of our commitment to transparency by default, the following
-            16 governance and operational policies will be publicly accessible on
-            the Compliance Library once finalized.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-3">
-          {policiesToPublish.map((policy, index) => (
-            <Badge
+        <SectionHeading
+          title="Committees"
+          subtitle="Specialized committees provide focused oversight in key areas of governance, risk, technology, and community."
+          centered
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {committees.map((committee, index) => (
+            <div
               key={index}
-              variant="outline"
-              className="px-4 py-2 text-sm font-medium border-[#0A1F44]/20 hover:bg-[#C8A951]/10 transition-colors cursor-default"
+              className="group bg-white border border-navy/10 rounded-xl p-5 hover:shadow-md hover:border-gold/40 transition-all duration-300"
             >
-              {policy}
-            </Badge>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-lg bg-trust-blue/10 text-trust-blue flex items-center justify-center shrink-0 group-hover:bg-trust-blue/20 transition-colors">
+                  {committee.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-sm text-navy leading-snug mb-1.5">{committee.name}</h3>
+                  <p className="text-xs text-[#4A5568] leading-relaxed">{committee.description}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </Section>
 
-      {/* Governance Commitment */}
       <Section>
+        <SectionHeading
+          title="Accountability to the Public"
+          subtitle="Governance at Fundraise.ph is not a checkbox — it is a living practice. Every trustee, officer, and team member is bound by these principles."
+          centered
+        />
+        <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {accountabilityItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-3 p-4 rounded-xl bg-light-gray border border-navy/10"
+              >
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
+                <span className="text-[#4A5568] text-sm font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section dark>
         <Card className="border-[#C8A951]/20 bg-gradient-to-br from-[#0A1F44]/5 to-[#0A1F44]/10">
           <CardContent className="p-6 md:p-8">
             <div className="max-w-3xl mx-auto text-center">
@@ -225,10 +243,11 @@ export function GovernancePage() {
         </Card>
       </Section>
 
-      {/* CTA */}
       <CTABlock
         headline="Trust is built on transparency."
         subheadline="Explore our governance framework, review our policies, and hold us accountable. Public trust is our most valuable asset."
+        ctaLabel="Go to Fundraising.ph Platform"
+        ctaHref={FUNDRAISING_PH_URL}
       />
     </div>
   )

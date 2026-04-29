@@ -31,6 +31,10 @@ import {
   FileText,
   Handshake,
 } from 'lucide-react'
+import {
+  PARTNER_TYPES,
+  HOW_HEARD_OPTIONS,
+} from '@/lib/validations/partner-application'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -52,29 +56,6 @@ interface FormErrors {
 }
 
 type Step = 1 | 2 | 3 | 4
-
-const PARTNER_TYPES = [
-  'NGO',
-  'School',
-  'Church',
-  'LGU',
-  'Corporate Sponsor',
-  'Supplier',
-  'Diaspora Organization',
-  'Technology Partner',
-  'Legal/Compliance',
-] as const
-
-const HOW_HEARD_OPTIONS = [
-  'Social Media',
-  'Word of Mouth',
-  'Search Engine',
-  'News Article',
-  'Community Event',
-  'Partner Referral',
-  'Website',
-  'Other',
-] as const
 
 const STEPS = [
   { number: 1 as Step, title: 'Organization', icon: Building2 },
@@ -161,25 +142,56 @@ function validateStep(step: Step, data: FormData): FormErrors {
   const errors: FormErrors = {}
 
   if (step === 1) {
-    if (!data.organizationName.trim()) errors.organizationName = 'Organization name is required'
-    if (!data.partnerType) errors.partnerType = 'Partner type is required'
-    if (!data.description.trim()) errors.description = 'Description is required'
-    if (data.description.trim() && data.description.trim().length < 20) {
+    if (!data.organizationName.trim()) {
+      errors.organizationName = 'Organization name is required'
+    } else if (data.organizationName.trim().length < 2) {
+      errors.organizationName = 'Organization name must be at least 2 characters'
+    } else if (data.organizationName.trim().length > 200) {
+      errors.organizationName = 'Organization name must be under 200 characters'
+    }
+
+    if (!data.partnerType) {
+      errors.partnerType = 'Partner type is required'
+    }
+
+    if (data.website.trim() && !isValidUrl(data.website)) {
+      errors.website = 'Please enter a valid URL (e.g. https://example.org)'
+    }
+
+    if (!data.description.trim()) {
+      errors.description = 'Description is required'
+    } else if (data.description.trim().length < 20) {
       errors.description = 'Description must be at least 20 characters'
+    } else if (data.description.trim().length > 5000) {
+      errors.description = 'Description must be under 5000 characters'
+    }
+
+    if (data.mission.trim().length > 3000) {
+      errors.mission = 'Mission statement must be under 3000 characters'
     }
   }
 
   if (step === 2) {
-    if (!data.contactPerson.trim()) errors.contactPerson = 'Contact person name is required'
+    if (!data.contactPerson.trim()) {
+      errors.contactPerson = 'Contact person name is required'
+    } else if (data.contactPerson.trim().length < 2) {
+      errors.contactPerson = 'Contact person must be at least 2 characters'
+    } else if (data.contactPerson.trim().length > 200) {
+      errors.contactPerson = 'Contact person must be under 200 characters'
+    }
+
     if (!data.email.trim()) {
       errors.email = 'Email is required'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) {
       errors.email = 'Please enter a valid email address'
+    } else if (data.email.trim().length > 254) {
+      errors.email = 'Email must be under 254 characters'
     }
+
     if (!data.phone.trim()) {
       errors.phone = 'Phone number is required'
-    } else if (!/^[\d\s\-+()]{7,}$/.test(data.phone)) {
-      errors.phone = 'Please enter a valid phone number'
+    } else if (!/^[\d\s\-+()]{7,20}$/.test(data.phone.trim())) {
+      errors.phone = 'Please enter a valid phone number (7-20 digits)'
     }
   }
 
@@ -188,6 +200,15 @@ function validateStep(step: Step, data: FormData): FormErrors {
   }
 
   return errors
+}
+
+function isValidUrl(val: string): boolean {
+  try {
+    new URL(val)
+    return true
+  } catch {
+    return false
+  }
 }
 
 // ─── Step 1: Organization Details ────────────────────────────────────────────
@@ -227,6 +248,7 @@ function StepOne({
             placeholder="e.g. Philippine Red Cross - Cebu Chapter"
             value={data.organizationName}
             onChange={(e) => onChange('organizationName', e.target.value)}
+            maxLength={200}
             className={errors.organizationName ? 'border-red-400 focus-visible:border-red-500' : ''}
             aria-invalid={!!errors.organizationName}
           />
@@ -277,7 +299,16 @@ function StepOne({
             placeholder="https://your-organization.org"
             value={data.website}
             onChange={(e) => onChange('website', e.target.value)}
+            maxLength={500}
+            className={errors.website ? 'border-red-400 focus-visible:border-red-500' : ''}
+            aria-invalid={!!errors.website}
           />
+          {errors.website && (
+            <p className="text-sm text-red-500 flex items-center gap-1">
+              <AlertCircle className="h-3.5 w-3.5" />
+              {errors.website}
+            </p>
+          )}
         </div>
 
         {/* Description */}
@@ -290,6 +321,7 @@ function StepOne({
             placeholder="Describe your organization, what you do, and the communities you serve..."
             value={data.description}
             onChange={(e) => onChange('description', e.target.value)}
+            maxLength={5000}
             className={`min-h-28 ${errors.description ? 'border-red-400' : ''}`}
             aria-invalid={!!errors.description}
           />
@@ -311,6 +343,7 @@ function StepOne({
             placeholder="Share your organization's mission and values..."
             value={data.mission}
             onChange={(e) => onChange('mission', e.target.value)}
+            maxLength={3000}
             className="min-h-20"
           />
         </div>
@@ -349,11 +382,12 @@ function StepTwo({
           <Label htmlFor="contactPerson" className="text-[#0A1F44] font-medium">
             Contact Person <span className="text-red-500">*</span>
           </Label>
-          <Input
+            <Input
             id="contactPerson"
             placeholder="Full name of primary contact"
             value={data.contactPerson}
             onChange={(e) => onChange('contactPerson', e.target.value)}
+            maxLength={200}
             className={errors.contactPerson ? 'border-red-400' : ''}
             aria-invalid={!!errors.contactPerson}
           />
@@ -370,12 +404,13 @@ function StepTwo({
           <Label htmlFor="email" className="text-[#0A1F44] font-medium">
             Email Address <span className="text-red-500">*</span>
           </Label>
-          <Input
+            <Input
             id="email"
             type="email"
             placeholder="contact@organization.org"
             value={data.email}
             onChange={(e) => onChange('email', e.target.value)}
+            maxLength={254}
             className={errors.email ? 'border-red-400' : ''}
             aria-invalid={!!errors.email}
           />
@@ -392,12 +427,13 @@ function StepTwo({
           <Label htmlFor="phone" className="text-[#0A1F44] font-medium">
             Phone Number <span className="text-red-500">*</span>
           </Label>
-          <Input
+            <Input
             id="phone"
             type="tel"
             placeholder="+63 9XX XXX XXXX"
             value={data.phone}
             onChange={(e) => onChange('phone', e.target.value)}
+            maxLength={30}
             className={errors.phone ? 'border-red-400' : ''}
             aria-invalid={!!errors.phone}
           />
@@ -692,8 +728,18 @@ export function PartnerApplicationPage() {
         body: JSON.stringify(formData),
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
-        const data = await response.json()
+        if (data.fields && Array.isArray(data.fields)) {
+          const serverErrors: FormErrors = {}
+          for (const fe of data.fields) {
+            if (fe.field) serverErrors[fe.field] = fe.message
+          }
+          setErrors(serverErrors)
+          setCurrentStep(1)
+          throw new Error('Please fix the highlighted errors and try again.')
+        }
         throw new Error(data.error || 'Failed to submit application')
       }
 

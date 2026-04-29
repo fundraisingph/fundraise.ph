@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { partnerApplicationSchema } from '@/lib/validations/partner-application'
 
-// GET /api/partners - List all partner applications (admin)
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -24,51 +24,36 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST /api/partners - Submit a partner application (public)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const {
-      organizationName,
-      contactPerson,
-      email,
-      phone,
-      partnerType,
-      website,
-      description,
-      mission,
-      howHeard,
-      agreedToTerms,
-    } = body
 
-    // Validate required fields
-    if (!organizationName || !contactPerson || !email || !phone || !partnerType || !description) {
+    const parsed = partnerApplicationSchema.safeParse(body)
+    if (!parsed.success) {
+      const fieldErrors = parsed.error.issues.map((issue) => ({
+        field: issue.path.join('.'),
+        message: issue.message,
+      }))
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Validation failed', fields: fieldErrors },
         { status: 400 }
       )
     }
 
-    const validTypes = ['NGO', 'School', 'Church', 'LGU', 'Corporate Sponsor', 'Supplier', 'Diaspora Organization', 'Technology Partner', 'Legal/Compliance']
-    if (!validTypes.includes(partnerType)) {
-      return NextResponse.json(
-        { error: 'Invalid partner type' },
-        { status: 400 }
-      )
-    }
+    const data = parsed.data
 
     const application = await db.partnerApplication.create({
       data: {
-        organizationName,
-        contactPerson,
-        email,
-        phone,
-        partnerType,
-        website: website || null,
-        description,
-        mission: mission || null,
-        howHeard: howHeard || null,
-        agreedToTerms: agreedToTerms || false,
+        organizationName: data.organizationName,
+        contactPerson: data.contactPerson,
+        email: data.email,
+        phone: data.phone,
+        partnerType: data.partnerType,
+        website: data.website ?? null,
+        description: data.description,
+        mission: data.mission ?? null,
+        howHeard: data.howHeard ?? null,
+        agreedToTerms: true,
         status: 'pending',
       },
     })

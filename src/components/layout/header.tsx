@@ -34,17 +34,32 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: 'Trust & Governance',
+    label: 'Trust, Governance & Compliance',
     items: [
+      { label: 'Overview', page: 'trust-governance-compliance' },
       { label: 'Trust & Transparency', page: 'trust-transparency' },
       { label: 'Governance', page: 'governance' },
+      { label: 'Compliance', page: 'compliance' },
+      { label: 'Verification Framework', page: 'verification-framework' },
+      { label: 'Campaign Standards', page: 'campaign-standards' },
+      { label: 'Policies', page: 'policies' },
+      { label: 'Reports & Disclosures', page: 'reports-disclosures' },
+      { label: 'FAQ', page: 'faq' },
     ],
   },
   {
     label: 'Technology & Impact',
     items: [
+      { label: 'Overview', page: 'technology-impact' },
       { label: 'Technology Roadmap', page: 'technology-roadmap' },
-      { label: 'Impact', page: 'impact' },
+      { label: 'Platform Infrastructure', page: 'platform-infrastructure' },
+      { label: 'Impact Dashboard', page: 'impact' },
+      { label: 'AI & Automation', page: 'ai-automation' },
+      { label: 'Marketplace Fundraising', page: 'marketplace-fundraising' },
+      { label: 'Diaspora Giving', page: 'diaspora-giving-technology' },
+      { label: 'Open Data & Research', page: 'open-data-research' },
+      { label: 'Technology Governance', page: 'technology-governance' },
+      { label: 'FAQ', page: 'tech-faq' },
     ],
   },
 ]
@@ -164,7 +179,7 @@ export function Header() {
           {/* Header CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="https://dev.fundraising.ph"
+                    href="https://fundraising.ph"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-gold hover:bg-[#B8943F] text-navy font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
@@ -244,7 +259,7 @@ export function Header() {
 
                 <div className="mt-4 pt-4 border-t border-white/10">
                   <Link
-                    href="https://dev.fundraising.ph"
+                    href="https://fundraising.ph"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-full bg-gold hover:bg-[#B8943F] text-navy font-semibold text-sm px-4 py-3 rounded-lg transition-colors"

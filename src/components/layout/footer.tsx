@@ -9,15 +9,33 @@ const orgLinks: { label: string; page: PageId }[] = [
   { label: 'Why We Exist', page: 'why-we-exist' },
   { label: 'Mission & Objectives', page: 'mission' },
   { label: 'Team & Trustees', page: 'team' },
-  { label: 'Governance', page: 'governance' },
   { label: 'Founding Story', page: 'founding-story' },
+  { label: "Serg's Chocolates Story", page: 'sergs-chocolates' },
 ]
 
 const trustLinks: { label: string; page: PageId }[] = [
+  { label: 'Overview', page: 'trust-governance-compliance' },
   { label: 'Trust & Transparency', page: 'trust-transparency' },
+  { label: 'Governance', page: 'governance' },
+  { label: 'Compliance', page: 'compliance' },
+  { label: 'Verification Framework', page: 'verification-framework' },
+  { label: 'Campaign Standards', page: 'campaign-standards' },
+  { label: 'Policies', page: 'policies' },
+  { label: 'Reports & Disclosures', page: 'reports-disclosures' },
+  { label: 'FAQ', page: 'faq' },
+]
+
+const techLinks: { label: string; page: PageId }[] = [
+  { label: 'Overview', page: 'technology-impact' },
   { label: 'Technology Roadmap', page: 'technology-roadmap' },
-  { label: 'Impact', page: 'impact' },
-  { label: "Serg's Chocolates Story", page: 'sergs-chocolates' },
+  { label: 'Platform Infrastructure', page: 'platform-infrastructure' },
+  { label: 'Impact Dashboard', page: 'impact' },
+  { label: 'AI & Automation', page: 'ai-automation' },
+  { label: 'Marketplace Fundraising', page: 'marketplace-fundraising' },
+  { label: 'Diaspora Giving', page: 'diaspora-giving-technology' },
+  { label: 'Open Data & Research', page: 'open-data-research' },
+  { label: 'Technology Governance', page: 'technology-governance' },
+  { label: 'FAQ', page: 'tech-faq' },
 ]
 
 const communityLinks: { label: string; page: PageId }[] = [
@@ -86,9 +104,9 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Trust & Technology */}
+          {/* Trust, Governance & Compliance */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Trust & Technology</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Trust, Governance & Compliance</h4>
             <ul className="space-y-2.5">
               {trustLinks.map((link) => (
                 <li key={link.page + link.label}>
@@ -103,11 +121,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Community */}
+          {/* Technology & Community */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Community</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Technology & Impact</h4>
             <ul className="space-y-2.5">
-              {communityLinks.map((link) => (
+              {techLinks.map((link) => (
                 <li key={link.page + link.label}>
                   <button
                     onClick={() => navigate(link.page)}
@@ -118,6 +136,17 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            <div className="mt-4 space-y-2.5">
+              {communityLinks.map((link) => (
+                <button
+                  key={link.page + link.label}
+                  onClick={() => navigate(link.page)}
+                  className="block text-sm text-white/60 hover:text-gold transition-colors"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
 
             {/* Trust Indicators */}
             <div className="mt-6 pt-4 border-t border-white/10">
@@ -147,7 +176,7 @@ export function Footer() {
             <span>Bayanihan deserves modern infrastructure.</span>
           </div>
           <Link
-            href="https://dev.fundraising.ph"
+            href="https://fundraising.ph"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-gold hover:bg-[#B8943F] text-navy font-semibold px-6 py-2.5 rounded-lg transition-colors text-sm"

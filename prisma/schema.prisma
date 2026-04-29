@@ -6,38 +6,41 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model AdminUser {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String
-  password  String
-  role      String   @default("admin") // admin, editor, viewer
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String    @id @default(cuid())
+  email       String    @unique
+  name        String
+  password    String
+  role        String    @default("admin") // admin, editor, viewer
+  status      String    @default("active") // active, suspended
+  lastLoginAt DateTime?
+  createdBy   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model PartnerApplication {
-  id              String   @id @default(cuid())
-  organizationName String
-  contactPerson   String
-  email           String
-  phone           String
-  partnerType     String   // NGO, School, Church, LGU, Corporate Sponsor, Supplier, Diaspora Org, Technology Partner, Legal/Compliance
-  website         String?
-  description     String
-  mission         String?
-  howHeard        String?
-  agreedToTerms   Boolean  @default(false)
-  status          String   @default("pending") // pending, under_review, approved, rejected
-  reviewNotes     String?
-  reviewedBy      String?
-  reviewedAt      DateTime?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id               String    @id @default(cuid())
+  organizationName String    @db.VarChar(200)
+  contactPerson    String    @db.VarChar(200)
+  email            String    @db.VarChar(254)
+  phone            String    @db.VarChar(30)
+  partnerType      String    @db.VarChar(50)
+  website          String?   @db.VarChar(500)
+  description      String    @db.VarChar(5000)
+  mission          String?   @db.VarChar(3000)
+  howHeard         String?   @db.VarChar(50)
+  agreedToTerms    Boolean   @default(false)
+  status           String    @default("pending") @db.VarChar(20)
+  reviewNotes      String?   @db.VarChar(2000)
+  reviewedBy       String?   @db.VarChar(200)
+  reviewedAt       DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 }
 
 model BlogPost {
