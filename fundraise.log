@@ -1,0 +1,684 @@
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+
+> nextjs_tailwind_shadcn_ts@0.2.0 start
+> NODE_ENV=production bun .next/standalone/server.js 2>&1 | tee server.log
+
+⨯ Failed to start server
+Error: Failed to start server. Is port 3000 in use?
+    at Promise (unknown:1:11)
+    at <anonymous> (server.js:27)
+    at <anonymous> (unknown:11:43) {
+  code: 'EADDRINUSE',
+  syscall: 'listen',
+  errno: 0
+}
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory
+nohup: failed to run command 'PORT=3001': No such file or directory

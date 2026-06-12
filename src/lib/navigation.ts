@@ -30,6 +30,16 @@ export type PageId =
   | 'partner-application'
   | 'blog'
   | 'admin'
+  | 'philippines-compliance-guide'
+  | 'verified-standards'
+  | 'campaign-verification-framework'
+  | 'donor-protection'
+  | 'transparency-reporting'
+  | 'product-based-fundraising-guide'
+  | 'diaspora-giving-safety'
+  | 'fundraise-vs-fundraising'
+  | 'knowledge-center'
+  | 'glossary'
 
 interface NavigationState {
   currentPage: PageId
@@ -52,7 +62,10 @@ const validPages: PageId[] = [
   'diaspora-giving-technology', 'open-data-research', 'technology-governance',
   'tech-faq', 'founding-story', 'sergs-chocolates',
   'team', 'partner-with-us',
-  'partner-application', 'blog', 'admin'
+  'partner-application', 'blog', 'admin',
+  'philippines-compliance-guide', 'verified-standards', 'campaign-verification-framework',
+  'donor-protection', 'transparency-reporting', 'product-based-fundraising-guide',
+  'diaspora-giving-safety', 'fundraise-vs-fundraising', 'knowledge-center', 'glossary'
 ]
 
 function isValidPage(hash: string): boolean {
@@ -108,4 +121,14 @@ export const pageTitles: Record<PageId, string> = {
   'partner-application': 'Partner Application',
   'blog': 'Trustee Notes & Blog',
   'admin': 'Admin Dashboard',
+  'philippines-compliance-guide': 'Philippines Compliance Guide',
+  'verified-standards': 'Verified Standards',
+  'campaign-verification-framework': 'Campaign Verification Framework',
+  'donor-protection': 'Donor Protection',
+  'transparency-reporting': 'Transparency Reporting',
+  'product-based-fundraising-guide': 'Product-Based Fundraising Guide',
+  'diaspora-giving-safety': 'Diaspora Giving Safety',
+  'fundraise-vs-fundraising': 'Fundraise.ph vs Fundraising.ph',
+  'knowledge-center': 'Knowledge Center',
+  'glossary': 'Glossary',
 }

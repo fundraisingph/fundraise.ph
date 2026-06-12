@@ -19,9 +19,11 @@ const trustLinks: { label: string; page: PageId }[] = [
   { label: 'Governance', page: 'governance' },
   { label: 'Compliance', page: 'compliance' },
   { label: 'Verification Framework', page: 'verification-framework' },
+  { label: 'Campaign Verification Framework', page: 'campaign-verification-framework' },
   { label: 'Campaign Standards', page: 'campaign-standards' },
   { label: 'Policies', page: 'policies' },
   { label: 'Reports & Disclosures', page: 'reports-disclosures' },
+  { label: 'Transparency Reporting', page: 'transparency-reporting' },
   { label: 'FAQ', page: 'faq' },
 ]
 
@@ -38,9 +40,42 @@ const techLinks: { label: string; page: PageId }[] = [
   { label: 'FAQ', page: 'tech-faq' },
 ]
 
+const exploreLinks: { label: string; href: string }[] = [
+  { label: 'Medical Fundraising', href: 'https://fundraising.ph/medical-fundraising' },
+  { label: 'Education Fundraising', href: 'https://fundraising.ph/education-fundraising' },
+  { label: 'Disaster Relief', href: 'https://fundraising.ph/disaster-relief-fundraising' },
+  { label: 'Church Fundraising', href: 'https://fundraising.ph/church-fundraising' },
+]
+
+const resourceLinks: { label: string; href: string }[] = [
+  { label: 'How to Start', href: 'https://fundraising.ph/fundraising-guide' },
+  { label: 'Templates', href: 'https://fundraising.ph/templates/campaign-description' },
+  { label: 'Sample Campaigns', href: 'https://fundraising.ph/samples/medical' },
+  { label: 'Compare Platforms', href: 'https://fundraising.ph/compare/best-platforms' },
+  { label: 'Glossary', href: 'https://fundraise.ph/#glossary' },
+]
+
+const localLinks: { label: string; href: string }[] = [
+  { label: 'Manila', href: 'https://fundraising.ph/local/manila' },
+  { label: 'Quezon City', href: 'https://fundraising.ph/local/quezon-city' },
+  { label: 'Cebu', href: 'https://fundraising.ph/local/cebu' },
+  { label: 'Davao', href: 'https://fundraising.ph/local/davao' },
+]
+
 const communityLinks: { label: string; page: PageId }[] = [
   { label: 'Partner With Us', page: 'partner-with-us' },
   { label: 'Trustee Notes & Blog', page: 'blog' },
+]
+
+const knowledgeCenterLinks: { label: string; page: PageId }[] = [
+  { label: 'Knowledge Center', page: 'knowledge-center' },
+  { label: 'Compliance Guide', page: 'philippines-compliance-guide' },
+  { label: 'Verified Standards', page: 'verified-standards' },
+  { label: 'Donor Protection', page: 'donor-protection' },
+  { label: 'Product-Based Fundraising', page: 'product-based-fundraising-guide' },
+  { label: 'Diaspora Giving Safety', page: 'diaspora-giving-safety' },
+  { label: 'Glossary', page: 'glossary' },
+  { label: 'Fundraise.ph vs Fundraising.ph', page: 'fundraise-vs-fundraising' },
 ]
 
 export function Footer() {
@@ -49,7 +84,7 @@ export function Footer() {
   return (
     <footer className="bg-navy text-white mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -121,6 +156,23 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Knowledge Center */}
+          <div>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Knowledge Center</h4>
+            <ul className="space-y-2.5">
+              {knowledgeCenterLinks.map((link) => (
+                <li key={link.page + link.label}>
+                  <button
+                    onClick={() => navigate(link.page)}
+                    className="text-sm text-white/60 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Technology & Community */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Technology & Impact</h4>
@@ -166,6 +218,62 @@ export function Footer() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-6 mt-8 pt-8 border-t border-white/10">
+          <div>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Explore</h4>
+            <ul className="space-y-2.5">
+              {exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Resources</h4>
+            <ul className="space-y-2.5">
+              {resourceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-gold">Local</h4>
+            <ul className="space-y-2.5">
+              {localLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/60 hover:text-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

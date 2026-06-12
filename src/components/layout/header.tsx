@@ -41,9 +41,11 @@ const navGroups: NavGroup[] = [
       { label: 'Governance', page: 'governance' },
       { label: 'Compliance', page: 'compliance' },
       { label: 'Verification Framework', page: 'verification-framework' },
+      { label: 'Campaign Verification Framework', page: 'campaign-verification-framework' },
       { label: 'Campaign Standards', page: 'campaign-standards' },
       { label: 'Policies', page: 'policies' },
       { label: 'Reports & Disclosures', page: 'reports-disclosures' },
+      { label: 'Transparency Reporting', page: 'transparency-reporting' },
       { label: 'FAQ', page: 'faq' },
     ],
   },
@@ -62,6 +64,26 @@ const navGroups: NavGroup[] = [
       { label: 'FAQ', page: 'tech-faq' },
     ],
   },
+  {
+    label: 'Knowledge Center',
+    items: [
+      { label: 'Knowledge Center', page: 'knowledge-center' },
+      { label: 'Compliance Guide', page: 'philippines-compliance-guide' },
+      { label: 'Verified Standards', page: 'verified-standards' },
+      { label: 'Donor Protection', page: 'donor-protection' },
+      { label: 'Product-Based Fundraising', page: 'product-based-fundraising-guide' },
+      { label: 'Diaspora Giving Safety', page: 'diaspora-giving-safety' },
+      { label: 'Glossary', page: 'glossary' },
+      { label: 'Fundraise.ph vs Fundraising.ph', page: 'fundraise-vs-fundraising' },
+    ],
+  },
+]
+
+const fundraisingLinks: { label: string; href: string }[] = [
+  { label: 'Fundraising Guide', href: 'https://fundraising.ph/fundraising-guide' },
+  { label: 'Medical', href: 'https://fundraising.ph/medical-fundraising' },
+  { label: 'Education', href: 'https://fundraising.ph/education-fundraising' },
+  { label: 'Church', href: 'https://fundraising.ph/church-fundraising' },
 ]
 
 const standaloneLinks: { label: string; page: PageId }[] = [
@@ -241,6 +263,33 @@ export function Header() {
                     </div>
                   )
                 })}
+
+            {/* Fundraising Category Links */}
+            {fundraisingLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-2 text-sm font-medium rounded-md transition-colors text-white/70 hover:text-white hover:bg-white/5"
+              >
+                {item.label}
+              </Link>
+            ))}
+
+                {/* Fundraising Category Links */}
+                {fundraisingLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-3 py-2.5 text-sm font-medium rounded-md text-left transition-colors text-white/70 hover:text-white hover:bg-white/5"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
 
                 {/* Standalone Links */}
                 {standaloneLinks.map((item) => (

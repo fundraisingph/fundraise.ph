@@ -34,6 +34,16 @@ import { PartnerWithUsPage } from '@/components/pages/partner-with-us-page'
 import { PartnerApplicationPage } from '@/components/pages/partner-application-page'
 import { BlogPage } from '@/components/pages/blog-page'
 import { AdminDashboardPage } from '@/components/pages/admin-dashboard-page'
+import { PhilippinesComplianceGuidePage } from '@/components/pages/philippines-compliance-guide-page'
+import { VerifiedStandardsPage } from '@/components/pages/verified-standards-page'
+import { CampaignVerificationFrameworkPage } from '@/components/pages/campaign-verification-framework-page'
+import { DonorProtectionPage } from '@/components/pages/donor-protection-page'
+import { TransparencyReportingPage } from '@/components/pages/transparency-reporting-page'
+import { ProductBasedFundraisingGuidePage } from '@/components/pages/product-based-fundraising-guide-page'
+import { DiasporaGivingSafetyPage } from '@/components/pages/diaspora-giving-safety-page'
+import { FundraiseVsFundraisingPage } from '@/components/pages/fundraise-vs-fundraising-page'
+import { KnowledgeCenterPage } from '@/components/pages/knowledge-center-page'
+import { GlossaryPage } from '@/components/pages/glossary-page'
 
 const pageComponents: Record<string, React.ComponentType> = {
   'home': HomePage,
@@ -65,6 +75,16 @@ const pageComponents: Record<string, React.ComponentType> = {
   'partner-application': PartnerApplicationPage,
   'blog': BlogPage,
   'admin': AdminDashboardPage,
+  'philippines-compliance-guide': PhilippinesComplianceGuidePage,
+  'verified-standards': VerifiedStandardsPage,
+  'campaign-verification-framework': CampaignVerificationFrameworkPage,
+  'donor-protection': DonorProtectionPage,
+  'transparency-reporting': TransparencyReportingPage,
+  'product-based-fundraising-guide': ProductBasedFundraisingGuidePage,
+  'diaspora-giving-safety': DiasporaGivingSafetyPage,
+  'fundraise-vs-fundraising': FundraiseVsFundraisingPage,
+  'knowledge-center': KnowledgeCenterPage,
+  'glossary': GlossaryPage,
 }
 
 export default function Home() {

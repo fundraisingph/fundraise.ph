@@ -42,6 +42,23 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Fundraise.ph",
+    url: "https://fundraise.ph",
+    description: "Fundraise.ph is the nonprofit trust and governance organization that sets the standards, policies, and trust framework for Filipino digital fundraising.",
+    logo: "https://fundraise.ph/logo.png",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Fundraise.ph",
+    url: "https://fundraise.ph",
+  },
+]
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -53,6 +70,30 @@ export default function RootLayout({
         className={`${inter.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Fundraising.ph",
+                url: "https://fundraising.ph",
+                description: "Fundraising.ph is the trusted fundraising platform for Filipinos, providing verified campaigns, secure donations, and transparent fund management.",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "Fundraising.ph",
+                url: "https://fundraising.ph",
+              },
+            ]),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Toaster />
       </body>

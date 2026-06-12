@@ -10,6 +10,8 @@ import { CTABlock } from '@/components/shared/cta-block'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CheckCircle2, Shield, FileText, Building, Users, AlertTriangle, Award, Info } from 'lucide-react'
+import { KNOWN_LAYERS, VERIFICATION_LAYER_LABELS, VERIFICATION_LAYER_DESCRIPTIONS } from '@/lib/badge-types'
+import { BADGE_DISPLAY_CONFIG } from '@/lib/badge-config'
 
 const verificationLevels = [
   {
@@ -49,17 +51,14 @@ const verificationLevels = [
   },
 ]
 
-const verificationBadges = [
-  { name: 'Organizer Verified', description: 'Campaign organizer identity has been reviewed.', color: 'bg-trust-blue/10 text-trust-blue border-trust-blue/20' },
-  { name: 'Organization Verified', description: 'Registered organization documents have been reviewed.', color: 'bg-navy/10 text-navy border-navy/20' },
-  { name: 'Documents Submitted', description: 'Required campaign documentation has been submitted.', color: 'bg-gold/10 text-navy border-gold/30' },
-  { name: 'Beneficiary Confirmed', description: 'Beneficiary identity and situation have been validated.', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-  { name: 'Marketplace Fundraising', description: 'Campaign involves marketplace or product-based fundraising.', color: 'bg-amber-50 text-amber-700 border-amber-200' },
-  { name: 'Sponsor Supported', description: 'Campaign involves sponsor participation, clearly disclosed.', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-  { name: 'Compliance Review Completed', description: 'Campaign has undergone compliance-sensitive review.', color: 'bg-blue-50 text-blue-700 border-blue-200' },
-  { name: 'Final Report Submitted', description: 'Post-campaign report has been submitted and published.', color: 'bg-teal-50 text-teal-700 border-teal-200' },
-  { name: 'Campaign Completed', description: 'Campaign has been completed with all reporting fulfilled.', color: 'bg-green-50 text-green-700 border-green-200' },
-]
+const verificationBadges = KNOWN_LAYERS.map((layer) => {
+  const config = BADGE_DISPLAY_CONFIG[layer]
+  return {
+    name: VERIFICATION_LAYER_LABELS[layer],
+    description: VERIFICATION_LAYER_DESCRIPTIONS[layer],
+    color: `${config.bgColor} ${config.textColor} ${config.borderColor}`,
+  }
+})
 
 export function VerificationFrameworkPage() {
   const { current: heroVar } = useRotatingContent(heroVariations['verification-framework'])

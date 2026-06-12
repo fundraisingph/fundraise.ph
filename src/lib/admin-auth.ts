@@ -58,6 +58,7 @@ export const ROLE_PERMISSIONS: Record<AdminRole, Record<string, string[]>> = {
     settings: ['create', 'read', 'update', 'delete'],
     user: ['create', 'read', 'update', 'delete'],
     dashboard: ['read'],
+    verification: ['create', 'read', 'update', 'delete'],
   },
   editor: {
     blog: ['create', 'read', 'update', 'publish'],
@@ -68,6 +69,7 @@ export const ROLE_PERMISSIONS: Record<AdminRole, Record<string, string[]>> = {
     settings: ['read'],
     user: [],
     dashboard: ['read'],
+    verification: ['read'],
   },
   viewer: {
     blog: ['read'],
@@ -78,6 +80,7 @@ export const ROLE_PERMISSIONS: Record<AdminRole, Record<string, string[]>> = {
     settings: ['read'],
     user: [],
     dashboard: ['read'],
+    verification: ['read'],
   },
 }
 

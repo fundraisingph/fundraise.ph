@@ -1,4 +1,5 @@
 import { db } from '@/lib/db'
+import { BADGE_EXPIRY_YEARS } from '../lib/badge-types'
 import bcrypt from 'bcryptjs'
 
 async function seed() {
@@ -310,7 +311,41 @@ async function seed() {
     }
   }
 
+  await seedBadges()
+
   console.log('🎉 Seeding complete!')
+}
+
+async function seedBadges() {
+  console.log('Seeding verification badges...')
+
+  const sampleCampaignId = 'sample-campaign-medical-001'
+  const layers: string[] = ['IDENTITY_VERIFIED', 'EMAIL_VERIFIED', 'MOBILE_VERIFIED', 'DOCUMENTS_VERIFIED']
+  const now = new Date()
+
+  for (const layer of layers) {
+    const years = BADGE_EXPIRY_YEARS[layer as keyof typeof BADGE_EXPIRY_YEARS]
+    const expiresAt = new Date(now)
+    expiresAt.setFullYear(expiresAt.getFullYear() + years)
+
+    await db.verificationBadge.upsert({
+      where: { id: `seed-${sampleCampaignId}-${layer}` },
+      update: {},
+      create: {
+        id: `seed-${sampleCampaignId}-${layer}`,
+        campaignId: sampleCampaignId,
+        type: layer,
+        status: 'APPROVED',
+        issuedAt: now,
+        expiresAt,
+        verifiedBy: 'seed-admin',
+        requestNotes: 'Seeded for demonstration',
+        prerequisiteMet: true,
+      },
+    })
+  }
+
+  console.log(`Seeded ${layers.length} verification badges`)
 }
 
 seed()
